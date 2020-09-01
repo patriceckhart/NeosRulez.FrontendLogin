@@ -1,0 +1,30 @@
+'NeosRulez.FrontendLogin:Plugin.Registration':
+  superTypes:
+    'Neos.Neos:Content': true
+    'Neos.Neos:Plugin': true
+  ui:
+    label: i18n
+    group: 'neosrulez_frontendlogin'
+    icon: 'fas fa-unlock'
+    inspector:
+      tabs:
+        neosrulez_frontendlogin_tab:
+          label: i18n
+          icon: 'fas fa-unlock'
+          position: 9998
+      groups:
+        neosrulez_frontendlogin_group:
+          tab: 'neosrulez_frontendlogin_tab'
+          label: i18n
+          icon: 'fas fa-unlock'
+  properties:
+    roles:
+      ui: ~
+    subject:
+      defaultValue: 'Registrierung'
+      type: string
+      ui:
+        reloadIfChanged: true
+        label: i18n
+        inspector:
+          group: 'neosrulez_frontendlogin_group'

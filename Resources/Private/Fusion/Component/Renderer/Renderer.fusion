@@ -1,0 +1,7 @@
+prototype(NeosRulez.FrontendLogin:Component.Renderer) < prototype(Neos.Fusion:Component) {
+    renderer = afx`
+        <div class="neosrulez-frontendlogin">
+            {props.content}
+        </div>
+    `
+}

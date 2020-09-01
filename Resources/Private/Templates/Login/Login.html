@@ -1,0 +1,38 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+{namespace fusion=Neos\Fusion\ViewHelpers}
+<div{attributes -> f:format.raw()}>
+    <f:if condition="!{node.context.inBackend}">
+        <f:then>
+            <f:flashMessages severity="Error" />
+            <f:render section="Content" arguments="{_all}" />
+        </f:then>
+        <f:else>
+            <code>{f:translate(id: 'backend', package: 'NeosRulez.FrontendLogin', source: 'Main')}</code>
+        </f:else>
+    </f:if>
+</div>
+<f:section name="Content">
+    <f:security.ifAuthenticated>
+        <f:then>
+            <p>{f:translate(id: 'authenticated', package: 'NeosRulez.FrontendLogin', source: 'Main')}</p>
+        </f:then>
+        <f:else>
+            <f:form action="authenticate" method="post" additionalAttributes="{role:'form'}" class="form_signin">
+                <div class="form-group">
+                    <label for="inputUsername">{f:translate(id: 'usernameLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/LoginForm')}</label>
+                    <input type="text" id="inputUsername" class="form-control" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][username]" placeholder="{f:translate(id: 'usernameLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/LoginForm')}" required="required" autofocus="autofocus">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">{f:translate(id: 'passwordLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/LoginForm')}</label>
+                    <input type="password" id="inputPassword" class="form-control" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][password]" placeholder="{f:translate(id: 'passwordLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/LoginForm')}" required="required">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">{f:translate(id: 'loginBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/LoginForm')}</button>
+                </div>
+            </f:form>
+            <f:if condition="{allowreset}">
+                <p><f:link.action action="reset" controller="Login">{f:translate(id: 'forgotBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/LoginForm')}</f:link.action></p>
+            </f:if>
+        </f:else>
+    </f:security.ifAuthenticated>
+</f:section>

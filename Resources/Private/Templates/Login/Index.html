@@ -1,0 +1,79 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+{namespace fusion=Neos\Fusion\ViewHelpers}
+<f:if condition="{logins}">
+    <f:then>
+        <table class="neos-table">
+            <thead>
+            <tr>
+                <td>{f:translate(id: 'usernameLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/LoginForm')}</td>
+                <td>{f:translate(id: 'company', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
+                <td>{f:translate(id: 'salutation', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
+                <td>{f:translate(id: 'name', package: 'NeosRulez.FrontendLogin', source: 'Main')}</td>
+                <td>{f:translate(id: 'address', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
+                <td>{f:translate(id: 'zip', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}, {f:translate(id: 'city', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
+                <td>{f:translate(id: 'country', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
+                <td>{f:translate(id: 'phone', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
+                <td>{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            </thead>
+            <tbody>
+            <f:for each="{logins}" as="login">
+                <tr>
+                    <td>{login.username}</td>
+                    <td>{login.company}</td>
+                    <td>
+                        <f:if condition="{login.salutation}==1">
+                            <f:then>
+                                {f:translate(id: 'salutation.male', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}
+                            </f:then>
+                            <f:else>
+                                {f:translate(id: 'salutation.female', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}
+                            </f:else>
+                        </f:if>
+                    </td>
+                    <td>{login.firstname} {login.lastname}</td>
+                    <td>{login.address}</td>
+                    <td>{login.zip} {login.city}</td>
+                    <td>{login.country}</td>
+                    <td>{login.phone}</td>
+                    <td>{login.email}</td>
+                    <td>
+                        <f:if condition="{login.active}==1">
+                            <f:then>
+                                <span class="neos-badge neos-badge-success">Aktiviert</span>
+                            </f:then>
+                            <f:else>
+                                <span class="neos-badge neos-badge-warning">Deaktiviert</span>
+                            </f:else>
+                        </f:if>
+                    </td>
+                    <td class="neos-action">
+                        <div class="neos-pull-right">
+                            <f:link.action class="neos-button neos-button-primary" action="edit" arguments="{login: login}"><i class="fas fa-pencil-alt"></i></f:link.action>
+                            <f:link.action class="neos-button neos-button-{f:if(condition: '{login.active}==1', then: 'warning', else: 'success')}" action="change" arguments="{login: login}">
+                                <f:if condition="{login.active}==1">
+                                    <f:then>
+                                        <i class="fas fa-toggle-on" style="color:#00a338;"></i>
+                                    </f:then>
+                                    <f:else>
+                                        <i class="fas fa-toggle-off" style="color:#ff8700;"></i>
+                                    </f:else>
+                                </f:if>
+                            </f:link.action>
+                        </div>
+                    </td>
+                </tr>
+            </f:for>
+            </tbody>
+        </table>
+    </f:then>
+    <f:else>
+        <p>{f:translate(id: 'nousers', package: 'NeosRulez.FrontendLogin', source: 'Main')}</p>
+    </f:else>
+</f:if>
+
+<div class="neos-footer">
+    <f:link.action class="neos-button neos-button-primary" action="new">{f:translate(id: 'createnew', package: 'NeosRulez.FrontendLogin', source: 'Main')}</f:link.action>
+</div>

@@ -1,0 +1,8 @@
+'NeosRulez.FrontendLogin:Document.ProtectedPage':
+  superTypes:
+    'Neos.Neos:Document': true
+    'NeosRulez.FrontendLogin:Mixin.Page': true
+  ui:
+    label: 'Geschützte Seite'
+    icon: fas fa-unlock
+    position: 9999

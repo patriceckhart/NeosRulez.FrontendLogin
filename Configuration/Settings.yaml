@@ -1,0 +1,54 @@
+Neos:
+  Flow:
+    security:
+      authentication:
+        providers:
+          'Neos.Neos:Backend':
+            requestPatterns:
+              'Neos.Neos.FrontendLogin:NeosBackend':
+                pattern: NeosRulez\FrontendLogin\Security\NeosRequestPattern
+          'NeosRulez.FrontendLogin:Frontend':
+            provider: PersistedUsernamePasswordProvider
+            requestPatterns:
+              'NeosRulez.FrontendLogin:NeosFrontend':
+                pattern: NeosRulez\FrontendLogin\Security\NeosRequestPattern
+                patternOptions:
+                  matchFrontend: true
+    mvc:
+      routes:
+        'NeosRulez.FrontendLogin': true
+  Neos:
+    eventLog:
+      enabled: true
+    userInterface:
+      translation:
+        autoInclude:
+          NeosRulez.FrontendLogin:
+            - Main
+            - 'NodeTypes/*'
+      defaultLanguage: 'de'
+    nodeTypes:
+      groups:
+        neosrulez_frontendlogin:
+          position: 'end'
+          label: NeosRulez.FrontendLogin:Main:felogin
+    fusion:
+      autoInclude:
+        NeosRulez.FrontendLogin: true
+    modules:
+      login:
+        label: 'Frontend Login'
+        controller: '\Neos\Neos\Controller\Module\ManagementController'
+        description: 'Benutzer und Gruppen für geschützten Bereich verwalten'
+        icon: 'fas fa-unlock'
+        resource: 'Neos_Neos_Backend_Module_Management'
+        submodules:
+          login:
+            label: 'Benutzer'
+            controller: '\NeosRulez\FrontendLogin\Controller\LoginController'
+            description: 'Benutzer für geschützten Bereich verwalten'
+            icon: 'icon-user'
+            actions:
+              index:
+                label: 'Benutzer verwalten'
+                title: 'Benutzer verwalten'

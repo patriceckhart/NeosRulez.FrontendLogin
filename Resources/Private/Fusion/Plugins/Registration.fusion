@@ -1,0 +1,14 @@
+prototype(NeosRulez.FrontendLogin:Plugin.Registration) < prototype(Neos.Neos:Plugin) {
+    package = 'NeosRulez.FrontendLogin'
+    controller = 'Login'
+    action = 'registration'
+    node = ${q(node)}
+    subject = ${q(node).property('subject')}
+//    @cache {
+//        mode = 'uncached'
+//        context {
+//            1 = 'node'
+//            2 = 'documentNode'
+//        }
+//    }
+}

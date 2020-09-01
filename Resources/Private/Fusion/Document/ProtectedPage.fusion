@@ -1,0 +1,20 @@
+prototype(NeosRulez.FrontendLogin:Document.ProtectedPage) < prototype(Neos.Neos:Page) {
+    body = Neos.Fusion:Component {
+        main = Neos.Neos:ContentCollection {
+            nodePath = 'main'
+        }
+
+        role = NeosRulez.FrontendLogin:Helper.RoleHelper {
+            roles = ${q(node).property('roles')}
+        }
+
+        renderer = afx`
+            <main @if.render={props.role} class="main">
+                {props.main}
+            </main>
+            <main @if.render={!props.role} class="main">
+                <h1>Diese Seite ist geschützt. Sie müssen sich einloggen um darauf zugreifen zu können.</h1>
+            </main>
+        `
+    }
+}

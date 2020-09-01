@@ -1,0 +1,24 @@
+#prototype(Neos.Neos:Content) {
+    #templatePath = 'resource://NeosRulez.FrontendLogin/Private/Templates/ProtoTypes/NotAuth.html'
+    #roles = ${q(node).property('roles')}
+    #condition = ${!Security.hasRole(roles) && !node.context.inBackend}
+    #authentication = ${q(node).property('mode')}
+    #authentication.@if.condition2 = 'ifAuthenticated'
+#}
+
+prototype(Neos.Neos:ContentCase) < prototype(Neos.Fusion:Case) {
+    @context.role = NeosRulez.FrontendLogin:FusionRole {
+        roles = ${q(node).property('roles')}
+    }
+    acl {
+        @position = 'start'
+        #roles = ${q(node).property('roles')}
+        #condition = ${Security.hasRole(roles) && !node.context.inBackend}
+        condition = ${this.role && !node.context.inBackend}
+        renderer = 'foo'
+    }
+}
+
+prototype(NeosRulez.FrontendLogin:FusionRole) {
+    @class = 'NeosRulez\\FrontendLogin\\Fusion\\RoleImplementation'
+}

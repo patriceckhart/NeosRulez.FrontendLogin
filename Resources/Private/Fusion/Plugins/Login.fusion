@@ -1,0 +1,16 @@
+prototype(NeosRulez.FrontendLogin:Plugin.Login) < prototype(Neos.Neos:Plugin) {
+    package = 'NeosRulez.FrontendLogin'
+    controller = 'Login'
+    action = 'login'
+    node = ${q(node)}
+    subject = ${q(node).property('resetPasswordSubject')}
+    redirectSuccess = ${q(node).property('redirectSuccess')}
+    redirectFailure = ${q(node).property('redirectFailure')}
+//    @cache {
+//        mode = 'uncached'
+//        context {
+//            1 = 'node'
+//            2 = 'documentNode'
+//        }
+//    }
+}

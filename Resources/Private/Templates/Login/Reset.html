@@ -1,0 +1,25 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+{namespace fusion=Neos\Fusion\ViewHelpers}
+<div{attributes -> f:format.raw()}>
+    <f:if condition="!{node.context.inBackend}">
+        <f:then>
+            <f:flashMessages severity="Error" />
+            <f:render section="Content" arguments="{_all}" />
+        </f:then>
+        <f:else>
+            <code>{f:translate(id: 'backend', package: 'NeosRulez.FrontendLogin', source: 'Main')}</code>
+        </f:else>
+    </f:if>
+</div>
+<f:section name="Content">
+    <f:form action="setnewpassword" method="post" arguments="{subject: subject}" additionalAttributes="{role:'form'}" class="form_reset">
+        <div class="form-group">
+            <label for="inputUsername">{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</label>
+            <f:form.textfield id="inputUsername" class="form-control" name="username" placeholder="{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">{f:translate(id: 'resetBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/LoginForm')}</button>
+        </div>
+    </f:form>
+    <p><f:link.action action="login" controller="Login">{f:translate(id: 'loginLink', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/LoginForm')}</f:link.action></p>
+</f:section>
