@@ -17,6 +17,9 @@
             <trans-unit id="forgotBtnLabel" xml:space="preserve">
 				<source>Forgot Password</source>
 			</trans-unit>
+			<trans-unit id="logoutBtnLabel" xml:space="preserve">
+				<source>Logout</source>
+			</trans-unit>
             <trans-unit id="usernameLabel" xml:space="preserve">
 				<source>Username</source>
 			</trans-unit>

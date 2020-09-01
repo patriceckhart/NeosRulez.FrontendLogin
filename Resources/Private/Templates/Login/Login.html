@@ -15,6 +15,7 @@
     <f:security.ifAuthenticated>
         <f:then>
             <p>{f:translate(id: 'authenticated', package: 'NeosRulez.FrontendLogin', source: 'Main')}</p>
+            <p><f:link.action action="logout" controller="Login" class="btn btn-primary">{f:translate(id: 'logoutBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'Main')}</f:link.action></p>
         </f:then>
         <f:else>
             <f:form action="authenticate" method="post" additionalAttributes="{role:'form'}" class="form_signin">

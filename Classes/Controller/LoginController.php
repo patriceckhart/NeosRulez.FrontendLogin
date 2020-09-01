@@ -391,7 +391,7 @@ class LoginController extends AbstractAuthenticationController
     public function logoutAction()
     {
         parent::logoutAction();
-        $this->redirectToUri('/de/login.html');
+        $this->redirectToUri('/');
     }
 
 }
