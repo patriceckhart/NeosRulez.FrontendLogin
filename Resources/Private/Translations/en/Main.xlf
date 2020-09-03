@@ -35,6 +35,12 @@
 			<trans-unit id="ifNotAuthenticated" xml:space="preserve">
                 <source>If not authenticated</source>
             </trans-unit>
+			<trans-unit id="active" xml:space="preserve">
+                <source>Activ</source>
+            </trans-unit>
+			<trans-unit id="inactive" xml:space="preserve">
+                <source>Inactiv</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

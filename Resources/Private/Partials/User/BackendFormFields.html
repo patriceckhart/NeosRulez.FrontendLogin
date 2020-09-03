@@ -1,53 +1,64 @@
+<f:form.hidden property="salutation" />
+<f:form.hidden property="company" />
+<f:form.hidden property="firstname" />
+<f:form.hidden property="lastname" />
+<f:form.hidden property="address" />
+<f:form.hidden property="zip" />
+<f:form.hidden property="city" />
+<f:form.hidden property="country" />
+<f:form.hidden property="phone" />
+<f:form.hidden property="email" />
+
 <style>
     input, select, label { min-width:50%; width:50%; }
     .neos-button { min-width: auto; }
 </style>
 <f:if condition="{formfields.salutation}">
     <div class="neos-control-group">
-        <label for="salutation">{f:translate(id: 'salutation', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</label>
-        <select name="moduleArguments[salutation]" id="salutation" class="form-control">
-            <option value="1"{f:if(condition='{login.salutation}==1', then:' selected')}>{f:translate(id: 'salutation.male', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</option>
-            <option value="2"{f:if(condition='{login.salutation}==2', then:' selected')}>{f:translate(id: 'salutation.female', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</option>
+        <label for="salutation">{f:translate(id: 'salutation', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}</label>
+        <select name="moduleArguments[login][salutation]" id="salutation" class="form-control">
+            <option value="1"{f:if(condition='{login.salutation}==1', then:' selected')}>{f:translate(id: 'salutation.male', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}</option>
+            <option value="2"{f:if(condition='{login.salutation}==2', then:' selected')}>{f:translate(id: 'salutation.female', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}</option>
         </select>
-
     </div>
 </f:if>
 <f:if condition="{formfields.company}">
     <div class="neos-control-group">
-        <label for="company">{f:translate(id: 'company', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')} {f:if(condition='{formfields.company.required}', then:'<sup>*</sup>')}</label>
-        <input type="text" name="moduleArguments[company]" id="company" placeholder="{f:translate(id: 'company', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}" value="{login.company}" {f:if(condition='{formfields.company.required}', then:'required="required"')} />
+        <label for="company">{f:translate(id: 'company', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')} {f:if(condition='{formfields.company.required}', then:'<sup>*</sup>')}</label>
+        <input type="text" name="moduleArguments[login][company]" id="company" placeholder="{f:translate(id: 'company', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}" value="{login.company}" {f:if(condition='{formfields.company.required}', then:'required="required"')} />
+
     </div>
 </f:if>
 <f:if condition="{formfields.name}">
     <div class="neos-control-group">
-        <label for="firstname">{f:translate(id: 'firstname', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')} {f:if(condition='{formfields.name.required}', then:'<sup>*</sup>')}</label>
-        <input type="text" name="moduleArguments[firstname]" id="firstname" placeholder="{f:translate(id: 'firstname', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}" value="{login.firstname}" {f:if(condition='{formfields.name.required}', then:'required="required"')} />
+        <label for="firstname">{f:translate(id: 'firstname', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')} {f:if(condition='{formfields.name.required}', then:'<sup>*</sup>')}</label>
+        <input type="text" name="moduleArguments[login][firstname]" id="firstname" placeholder="{f:translate(id: 'firstname', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}" value="{login.firstname}" {f:if(condition='{formfields.name.required}', then:'required="required"')} />
     </div>
     <div class="neos-control-group">
-        <label for="lastname">{f:translate(id: 'lastname', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')} {f:if(condition='{formfields.name.required}', then:'<sup>*</sup>')}</label>
-        <input type="text" name="moduleArguments[lastname]" id="lastname" placeholder="{f:translate(id: 'lastname', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}" value="{login.lastname}" {f:if(condition='{formfields.name.required}', then:'required="required"')} />
+        <label for="lastname">{f:translate(id: 'lastname', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')} {f:if(condition='{formfields.name.required}', then:'<sup>*</sup>')}</label>
+        <input type="text" name="moduleArguments[login][lastname]" id="lastname" placeholder="{f:translate(id: 'lastname', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}" value="{login.lastname}" {f:if(condition='{formfields.name.required}', then:'required="required"')} />
     </div>
 </f:if>
 <f:if condition="{formfields.address}">
     <div class="neos-control-group">
-        <label for="address">{f:translate(id: 'address', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')} {f:if(condition='{formfields.address.required}', then:'<sup>*</sup>')}</label>
-        <input type="text" name="moduleArguments[address]" id="address" placeholder="{f:translate(id: 'address', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}" value="{login.address}" {f:if(condition='{formfields.address.required}', then:'required="required"')} />
+        <label for="address">{f:translate(id: 'address', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')} {f:if(condition='{formfields.address.required}', then:'<sup>*</sup>')}</label>
+        <input type="text" name="moduleArguments[login][address]" id="address" placeholder="{f:translate(id: 'address', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}" value="{login.address}" {f:if(condition='{formfields.address.required}', then:'required="required"')} />
     </div>
 </f:if>
 <f:if condition="{formfields.zipcity}">
     <div class="neos-control-group">
-        <label for="zip">{f:translate(id: 'zip', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')} {f:if(condition='{formfields.zipcity.required}', then:'<sup>*</sup>')}</label>
-        <input type="number" name="moduleArguments[zip]" id="zip" placeholder="{f:translate(id: 'zip', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}" value="{login.zip}" {f:if(condition='{formfields.zipcity.required}', then:'required="required"')} />
+        <label for="zip">{f:translate(id: 'zip', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')} {f:if(condition='{formfields.zipcity.required}', then:'<sup>*</sup>')}</label>
+        <input type="number" name="moduleArguments[login][zip]" id="zip" placeholder="{f:translate(id: 'zip', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}" value="{login.zip}" {f:if(condition='{formfields.zipcity.required}', then:'required="required"')} />
     </div>
     <div class="neos-control-group">
-        <label for="city">{f:translate(id: 'city', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')} {f:if(condition='{formfields.zipcity.required}', then:'<sup>*</sup>')}</label>
-        <input type="text" name="moduleArguments[city]" id="city" placeholder="{f:translate(id: 'city', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}" value="{login.city}" {f:if(condition='{formfields.zipcity.required}', then:'required="required"')} />
+        <label for="city">{f:translate(id: 'city', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')} {f:if(condition='{formfields.zipcity.required}', then:'<sup>*</sup>')}</label>
+        <input type="text" name="moduleArguments[login][city]" id="city" placeholder="{f:translate(id: 'city', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}" value="{login.city}" {f:if(condition='{formfields.zipcity.required}', then:'required="required"')} />
     </div>
 </f:if>
 <f:if condition="{formfields.country}">
     <div class="neos-control-group">
-        <label for="country">{f:translate(id: 'country', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</label>
-        <select name="moduleArguments[country]" id="country" class="form-control">
+        <label for="country">{f:translate(id: 'country', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}</label>
+        <select name="moduleArguments[login][country]" id="country" class="form-control">
             <f:for each="{countries}" as="country">
                 <option value="{country.short}"{f:if(condition='{login.country}=={country.short}', then:' selected')}>{country.label}</option>
             </f:for>
@@ -68,32 +79,34 @@
     <legend>{f:translate(id: 'passwordLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</legend>
     <div class="neos-control-group mt-3">
         <label for="password">{f:translate(id: 'passwordLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')} <sup>*</sup></label>
-        <input type="password" id="password" name="moduleArguments[password]" placeholder="{f:translate(id: 'passwordLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}" required="required">
+        <input type="password" id="password" name="moduleArguments[login][password]" placeholder="{f:translate(id: 'passwordLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}" required="required">
     </div>
     <div class="neos-control-group mt-4">
-        <label for="password2">{f:translate(id: 'passwordrepeat', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')} <sup>*</sup></label>
-        <input type="password" id="password2" name="moduleArguments[password2]" placeholder="{f:translate(id: 'passwordrepeat', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}" required="required">
+        <label for="password2">{f:translate(id: 'passwordrepeat', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')} <sup>*</sup></label>
+        <input type="password" id="password2" name="moduleArguments[login][password2]" placeholder="{f:translate(id: 'passwordrepeat', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}" required="required">
     </div>
 </f:if>
 <f:section name="phone">
     <div class="neos-control-group">
-        <label for="phone">{f:translate(id: 'phone', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')} {f:if(condition='{formfields.phone.required}', then:'<sup>*</sup>')}</label>
-        <input type="text" name="moduleArguments[phone]" id="phone" placeholder="{f:translate(id: 'phone', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}" value="{login.phone}" {f:if(condition='{formfields.phone.required}', then:'required="required"')} />
+        <label for="phone">{f:translate(id: 'phone', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')} {f:if(condition='{formfields.phone.required}', then:'<sup>*</sup>')}</label>
+        <input type="text" name="moduleArguments[login][phone]" id="phone" placeholder="{f:translate(id: 'phone', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}" value="{login.phone}" {f:if(condition='{formfields.phone.required}', then:'required="required"')} />
     </div>
 </f:section>
 <f:section name="email">
     <div class="neos-control-group">
-        <label for="email">{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')} {f:if(condition='{formfields.email.required}', then:'<sup>*</sup>')}</label>
-        <input type="text" name="moduleArguments[email]" id="email" placeholder="{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}" value="{login.email}" {f:if(condition='{formfields.email.required}', then:'required="required"')} />
+        <label for="email">{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')} {f:if(condition='{formfields.email.required}', then:'<sup>*</sup>')}</label>
+        <input type="text" name="moduleArguments[login][email]" id="email" placeholder="{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}" value="{login.email}" {f:if(condition='{formfields.email.required}', then:'required="required"')} />
     </div>
 </f:section>
-<legend>{f:translate(id: 'properties.roles', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/ProtectedPage')}</legend>
+<f:comment>
+<legend>{f:translate(id: 'properties.roles', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Mixin/Page')}</legend>
 <div class="neos-control-group">
-    <label for="role">{f:translate(id: 'properties.roles', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/ProtectedPage')}</label>
-    <select name="moduleArguments[role]" id="role" class="form-control">
+    <label for="role">{f:translate(id: 'properties.roles', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Mixin/Page')}</label>
+    <select name="moduleArguments[login][role]" id="role" class="form-control">
         <f:for each="{roles}" as="role">
             <option value="{role}"{f:if(condition='{role}=={role}', then:' selected')}>{role}</option>
         </f:for>
     </select>
 </div>
+</f:comment>
 

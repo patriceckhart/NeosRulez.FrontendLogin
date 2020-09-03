@@ -302,10 +302,12 @@ class LoginController extends AbstractAuthenticationController
     }
 
     /**
+     * @param \NeosRulez\FrontendLogin\Domain\Model\Login $login
      * @return void
      */
-    public function updateAction() {
-        //$this->loginRepository->update($login);
+    public function updateAction($login) {
+        $this->loginRepository->update($login);
+//        $this->persistenceManager->persistAll();
         $this->redirect('index','login');
     }
 
