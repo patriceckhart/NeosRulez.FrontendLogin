@@ -1,7 +1,17 @@
 prototype(NeosRulez.FrontendLogin:Component.Renderer) < prototype(Neos.Fusion:Component) {
+
+    role = NeosRulez.FrontendLogin:Helper.RoleHelper {
+        roles = ${q(node).property('roles')}
+    }
+
+    message403 = ${I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Component.Renderer:message403')}
+
     renderer = afx`
-        <div class="neosrulez-frontendlogin">
+        <div @if.render={props.role} class="neosrulez-frontendlogin">
             {props.content}
+        </div>
+        <div @if.render={!props.role} class="neosrulez-frontendlogin">
+            {props.message403}
         </div>
     `
 }
