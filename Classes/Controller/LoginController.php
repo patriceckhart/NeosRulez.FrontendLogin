@@ -294,7 +294,6 @@ class LoginController extends AbstractAuthenticationController
             }
         }
         if(isset($args['subject'])) {
-//            $this->redirect('registration','login');
             $this->redirectToUri('/');
         } else {
             $this->redirect('index','login');

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="NeosRulez.FrontendLogin" source-language="de" datatype="plaintext">
+        <body>
+            <trans-unit id="header" xml:space="preserve">
+				<source>Registrierung</source>
+			</trans-unit>
+            <trans-unit id="body" xml:space="preserve">
+				<source>Vielen Dank für Ihre Registrierung.</source>
+			</trans-unit>
+            <trans-unit id="header_credentials" xml:space="preserve">
+				<source>Ihre Zugangsdaten:</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>
