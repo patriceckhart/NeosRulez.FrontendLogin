@@ -4,10 +4,10 @@ NeosRulez:
     adminMail: 'mail@patriceckhart.com'
     mail:
       templates:
-        confirmation: 'resource://NeosRulez.FrontendLogin/Private/Templates/Mail/Confirmation.html'
         registration: 'resource://NeosRulez.FrontendLogin/Private/Templates/Mail/Registration.html'
         newpassword: 'resource://NeosRulez.FrontendLogin/Private/Templates/Mail/Password.html'
     registration:
+      autoActive: true
       defaultRole: 'NeosRulez.FrontendLogin:FrontendUser'
       formfields:
         salutation:

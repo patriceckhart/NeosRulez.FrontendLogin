@@ -215,7 +215,7 @@ class LoginController extends AbstractAuthenticationController
     public function createAction()
     {
         $args = $this->request->getArguments();
-        // var_dump($args);
+//        var_dump($args);
 
         if($this->loginRepository->checkIfUserExist($args['email'])) {
             $this->addFlashMessage('Es existiert bereits ein Benutzer mit diesem Benutzernamen.', 'Fehler!', \Neos\Error\Messages\Message::SEVERITY_ERROR);
@@ -281,7 +281,8 @@ class LoginController extends AbstractAuthenticationController
                     $login->setEmail($args['email']);
                 }
                 $login->setUsername($args['email']);
-                $login->setActive(1);
+
+                $login->setActive($this->settings['registration']['autoActive']);
 
                 $this->loginRepository->add($login);
 
