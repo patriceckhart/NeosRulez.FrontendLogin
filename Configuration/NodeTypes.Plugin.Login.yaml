@@ -35,10 +35,10 @@
         label: i18n
         inspector:
           group: 'neosrulez_frontendlogin_group'
-    redirectFailure:
-      type: reference
-      ui:
-        reloadIfChanged: true
-        label: i18n
-        inspector:
-          group: 'neosrulez_frontendlogin_group'
+#    redirectFailure:
+#      type: reference
+#      ui:
+#        reloadIfChanged: true
+#        label: i18n
+#        inspector:
+#          group: 'neosrulez_frontendlogin_group'

@@ -5,7 +5,7 @@ prototype(NeosRulez.FrontendLogin:Plugin.Login) < prototype(Neos.Neos:Plugin) {
     node = ${q(node)}
     subject = ${q(node).property('resetPasswordSubject')}
     redirectSuccess = ${q(node).property('redirectSuccess')}
-    redirectFailure = ${q(node).property('redirectFailure')}
+//    redirectFailure = ${q(node).property('redirectFailure')}
 //    @cache {
 //        mode = 'uncached'
 //        context {

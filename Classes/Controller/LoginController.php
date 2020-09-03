@@ -73,6 +73,12 @@ class LoginController extends AbstractAuthenticationController
     protected $accountIdentifier;
 
     /**
+     * @Flow\Inject
+     * @var \Neos\Neos\Service\LinkingService
+     */
+    protected $linkingService;
+
+    /**
      * @var array
      */
     protected $settings;
@@ -307,7 +313,6 @@ class LoginController extends AbstractAuthenticationController
      */
     public function updateAction($login) {
         $this->loginRepository->update($login);
-//        $this->persistenceManager->persistAll();
         $this->redirect('index','login');
     }
 
@@ -361,15 +366,37 @@ class LoginController extends AbstractAuthenticationController
     protected function onAuthenticationSuccess(ActionRequest $originalRequest = null) {
 
         $redirectSuccess = $this->request->getInternalArgument('__redirectSuccess');
-        // var_dump($redirectSuccess);
-        // $redirectFailure = $this->request->getInternalArgument('__redirectFailure');
 
 //        if ($originalRequest !== NULL) {
 //            $this->redirectToRequest($originalRequest);
 //        }
 //        $this->redirect('index');
 
-        $this->redirectToUri('/');
+        if($redirectSuccess) {
+            $uri = $this->getNodeUri($redirectSuccess);
+        } else {
+            $uri = '/';
+        }
+
+        $this->redirectToUri($uri);
+    }
+
+    /**
+     * @return string
+     */
+    public function getNodeUri($node) {
+        $url = $this->linkingService->createNodeUri(
+            $this->getControllerContext(),
+            $node,
+            null,
+            'html',
+            'false',
+            [],
+            '',
+            false,
+            []
+        );
+        return $url;
     }
 
     /**
