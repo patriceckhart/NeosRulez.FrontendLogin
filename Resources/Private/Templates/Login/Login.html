@@ -3,7 +3,9 @@
 <div{attributes -> f:format.raw()}>
     <f:if condition="!{node.context.inBackend}">
         <f:then>
-            <f:flashMessages severity="Error" />
+            <f:if condition="{error}">
+                <div class="alert alert-danger">{error}</div>
+            </f:if>
             <f:render section="Content" arguments="{_all}" />
         </f:then>
         <f:else>

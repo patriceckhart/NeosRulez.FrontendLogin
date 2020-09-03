@@ -367,11 +367,6 @@ class LoginController extends AbstractAuthenticationController
 
         $redirectSuccess = $this->request->getInternalArgument('__redirectSuccess');
 
-//        if ($originalRequest !== NULL) {
-//            $this->redirectToRequest($originalRequest);
-//        }
-//        $this->redirect('index');
-
         if($redirectSuccess) {
             $uri = $this->getNodeUri($redirectSuccess);
         } else {
@@ -411,7 +406,9 @@ class LoginController extends AbstractAuthenticationController
      */
     protected function onAuthenticationFailure(\Neos\Flow\Security\Exception\AuthenticationRequiredException $exception = null)
     {
-        $this->addFlashMessage('Benutzername oder Passwort falsch!', '', \Neos\Error\Messages\Message::SEVERITY_ERROR);
+
+//        $this->addFlashMessage('Benutzername oder Passwort falsch!', '', \Neos\Error\Messages\Message::SEVERITY_ERROR);
+//        $this->view->assign('error', 'Benutzername oder Passwort falsch!');
     }
 
     /**
@@ -420,7 +417,9 @@ class LoginController extends AbstractAuthenticationController
     public function logoutAction()
     {
         parent::logoutAction();
-        $this->redirectToUri('/');
+//        $this->redirectToUri('/');
+//        $this->addFlashMessage('Logout successful');
+        $this->redirect('login', 'login');
     }
 
 }
