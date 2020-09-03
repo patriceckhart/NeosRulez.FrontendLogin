@@ -21,6 +21,18 @@ class LoginRepository extends Repository
      */
     protected $policyService;
 
+    /**
+     * @var \Neos\Flow\Security\Context
+     * @Flow\Inject
+     */
+    protected $securityContext;
+
+    /**
+     * @var \Neos\Flow\Security\Authentication\AuthenticationManagerInterface
+     * @Flow\Inject
+     */
+    protected $authenticationManager;
+
     public function checkIfUserExist($username) {
         $class = '\NeosRulez\FrontendLogin\Domain\Model\Login';
         $query = $this->persistenceManager->createQueryForType($class);
@@ -38,6 +50,17 @@ class LoginRepository extends Repository
             }
         }
         return $roleList;
+    }
+
+    /**
+     * @return void
+     */
+    public function getUsername() {
+        if ($this->authenticationManager->isAuthenticated() === TRUE) {
+            $account = $this->securityContext->getAccount();
+            $ident = $account->getAccountIdentifier();
+            return $ident;
+        }
     }
 
 }

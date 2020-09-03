@@ -7,3 +7,12 @@
     '@format': 'html'
     '@action': 'authenticate'
   appendExceedingArguments: true
+-
+  name: 'logout'
+  uriPattern: 'logout'
+  defaults:
+    '@package': 'NeosRulez.FrontendLogin'
+    '@controller': 'Login'
+    '@format': 'html'
+    '@action': 'logout'
+  appendExceedingArguments: true

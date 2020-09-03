@@ -373,7 +373,16 @@ class LoginController extends AbstractAuthenticationController
             $uri = '/';
         }
 
-        $this->redirectToUri($uri);
+        $username = $this->loginRepository->getUsername();
+        $user = $this->loginRepository->checkIfUserExist($username);
+        $active = $user->getActive();
+
+        if($active) {
+            $this->redirectToUri($uri);
+        } else {
+            $this->redirect('logout');
+        }
+
     }
 
     /**
