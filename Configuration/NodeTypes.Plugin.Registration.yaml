@@ -5,7 +5,7 @@
   ui:
     label: i18n
     group: 'neosrulez_frontendlogin'
-    icon: 'fas fa-unlock'
+    icon: 'fas fa-user-edit'
     inspector:
       tabs:
         neosrulez_frontendlogin_tab:

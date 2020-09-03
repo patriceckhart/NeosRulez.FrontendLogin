@@ -25,21 +25,3 @@
           editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             dataSourceIdentifier: neosrulez-frontendlogin-roles
-#    mode:
-#      defaultValue: ''
-#      type: string
-#      ui:
-#        label:  NeosRulez.FrontendLogin:NodeTypes.ProtectedPage:properties.mode
-#        reloadIfChanged: true
-#        showInCreationDialog: true
-#        inspector:
-#          group: 'neosrulez_frontendlogin_group'
-#          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
-#          editorOptions:
-#            values:
-#              '':
-#                label: ''
-#              'ifAuthenticated':
-#                label: NeosRulez.FrontendLogin:Main:ifAuthenticated
-#              'ifNotAuthenticated':
-#                label: NeosRulez.FrontendLogin:Main:ifNotAuthenticated

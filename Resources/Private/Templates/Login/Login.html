@@ -15,24 +15,24 @@
     <f:security.ifAuthenticated>
         <f:then>
             <p>{f:translate(id: 'authenticated', package: 'NeosRulez.FrontendLogin', source: 'Main')}</p>
-            <p><f:link.action action="logout" controller="Login" class="btn btn-primary">{f:translate(id: 'logoutBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Login')}</f:link.action></p>
+            <p><f:link.action action="logout" controller="Login" class="btn btn-primary">{f:translate(id: 'logoutBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</f:link.action></p>
         </f:then>
         <f:else>
             <f:form action="authenticate" method="post" additionalAttributes="{role:'form'}" class="form_signin">
                 <div class="form-group">
-                    <label for="inputUsername">{f:translate(id: 'usernameLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Login')}</label>
-                    <input type="text" id="inputUsername" class="form-control" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][username]" placeholder="{f:translate(id: 'usernameLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Login')}" required="required" autofocus="autofocus">
+                    <label for="inputUsername">{f:translate(id: 'usernameLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</label>
+                    <input type="text" id="inputUsername" class="form-control" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][username]" placeholder="{f:translate(id: 'usernameLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}" required="required" autofocus="autofocus">
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword">{f:translate(id: 'passwordLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Login')}</label>
-                    <input type="password" id="inputPassword" class="form-control" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][password]" placeholder="{f:translate(id: 'passwordLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Login')}" required="required">
+                    <label for="inputPassword">{f:translate(id: 'passwordLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</label>
+                    <input type="password" id="inputPassword" class="form-control" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][password]" placeholder="{f:translate(id: 'passwordLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}" required="required">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block" type="submit">{f:translate(id: 'loginBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Login')}</button>
+                    <button class="btn btn-primary btn-block" type="submit">{f:translate(id: 'loginBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</button>
                 </div>
             </f:form>
             <f:if condition="{allowreset}">
-                <p><f:link.action action="reset" controller="Login">{f:translate(id: 'forgotBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Login')}</f:link.action></p>
+                <p><f:link.action action="reset" controller="Login">{f:translate(id: 'forgotBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</f:link.action></p>
             </f:if>
         </f:else>
     </f:security.ifAuthenticated>

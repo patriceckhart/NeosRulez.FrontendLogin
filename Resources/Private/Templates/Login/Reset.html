@@ -14,12 +14,12 @@
 <f:section name="Content">
     <f:form action="setnewpassword" method="post" arguments="{subject: subject}" additionalAttributes="{role:'form'}" class="form_reset">
         <div class="form-group">
-            <label for="inputUsername">{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</label>
-            <f:form.textfield id="inputUsername" class="form-control" name="username" placeholder="{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}" />
+            <label for="inputUsername">{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</label>
+            <f:form.textfield id="inputUsername" class="form-control" name="username" placeholder="{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}" />
         </div>
         <div class="form-group">
-            <button class="btn btn-primary btn-block" type="submit">{f:translate(id: 'resetBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Login')}</button>
+            <button class="btn btn-primary btn-block" type="submit">{f:translate(id: 'resetBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</button>
         </div>
     </f:form>
-    <p><f:link.action action="login" controller="Login">{f:translate(id: 'loginLink', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Login')}</f:link.action></p>
+    <p><f:link.action action="login" controller="Login">{f:translate(id: 'loginLink', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</f:link.action></p>
 </f:section>

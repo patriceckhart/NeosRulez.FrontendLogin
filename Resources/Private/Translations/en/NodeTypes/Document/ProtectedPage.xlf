@@ -5,12 +5,6 @@
             <trans-unit id="ui.label" xml:space="preserve">
 				<source>Protected page</source>
 			</trans-unit>
-            <trans-unit id="properties.roles" xml:space="preserve">
-				<source>Usergroup</source>
-			</trans-unit>
-            <trans-unit id="properties.mode" xml:space="preserve">
-				<source>Visibility mode</source>
-			</trans-unit>
         </body>
     </file>
 </xliff>

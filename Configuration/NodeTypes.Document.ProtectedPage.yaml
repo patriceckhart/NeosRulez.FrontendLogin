@@ -3,6 +3,6 @@
     'Neos.Neos:Document': true
     'NeosRulez.FrontendLogin:Mixin.Page': true
   ui:
-    label: 'Geschützte Seite'
+    label: i18n
     icon: fas fa-unlock
     position: 9999

@@ -5,15 +5,15 @@
         <table class="neos-table">
             <thead>
             <tr>
-                <td>{f:translate(id: 'usernameLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Login')}</td>
-                <td>{f:translate(id: 'company', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
-                <td>{f:translate(id: 'salutation', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
+                <td>{f:translate(id: 'usernameLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</td>
+                <td>{f:translate(id: 'company', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</td>
+                <td>{f:translate(id: 'salutation', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</td>
                 <td>{f:translate(id: 'name', package: 'NeosRulez.FrontendLogin', source: 'Main')}</td>
-                <td>{f:translate(id: 'address', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
-                <td>{f:translate(id: 'zip', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}, {f:translate(id: 'city', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
-                <td>{f:translate(id: 'country', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
-                <td>{f:translate(id: 'phone', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
-                <td>{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}</td>
+                <td>{f:translate(id: 'address', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</td>
+                <td>{f:translate(id: 'zip', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}, {f:translate(id: 'city', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</td>
+                <td>{f:translate(id: 'country', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</td>
+                <td>{f:translate(id: 'phone', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</td>
+                <td>{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
@@ -26,10 +26,10 @@
                     <td>
                         <f:if condition="{login.salutation}==1">
                             <f:then>
-                                {f:translate(id: 'salutation.male', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}
+                                {f:translate(id: 'salutation.male', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}
                             </f:then>
                             <f:else>
-                                {f:translate(id: 'salutation.female', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/RegistrationForm')}
+                                {f:translate(id: 'salutation.female', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}
                             </f:else>
                         </f:if>
                     </td>
