@@ -16,8 +16,3 @@ roles:
   'Neos.Neos:AbstractEditor':
     parentRoles:
       'NeosRulez.FrontendLogin:FrontendUser': 'NeosRulez.FrontendLogin:FrontendUser'
-#  'NeosRulez.FrontendLogin:FrontendUser':
-#    privileges:
-#      -
-#        privilegeTarget: 'NeosRulez.FrontendLogin:LoginControllerActions'
-#        permission: GRANT

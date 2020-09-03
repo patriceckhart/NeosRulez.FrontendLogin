@@ -4,5 +4,5 @@
     'NeosRulez.FrontendLogin:Mixin.Page': true
   ui:
     label: i18n
-    icon: fas fa-unlock
+    icon: 'far fa-user'
     position: 9999
