@@ -221,14 +221,12 @@ class LoginController extends AbstractAuthenticationController
     public function createAction()
     {
         $args = $this->request->getArguments();
-//        var_dump($args);
 
         if($this->loginRepository->checkIfUserExist($args['email'])) {
             $this->addFlashMessage('Es existiert bereits ein Benutzer mit diesem Benutzernamen.', 'Fehler!', \Neos\Error\Messages\Message::SEVERITY_ERROR);
         } else {
             if($args['password']==$args['password2']) {
                 $defaultRole = $this->settings['registration']['defaultRole'];
-//                $authenticationProviderName = 'NeosRulezFrontendLoginProvider';
                 $authenticationProviderName = 'NeosRulez.FrontendLogin:Frontend';
                 $account = $this->accountFactory->createAccountWithPassword($args['email'], $args['password'], array($defaultRole), $authenticationProviderName);
                 $account->setCredentialsSource($this->hashService->hashPassword($args['password']));
@@ -326,8 +324,7 @@ class LoginController extends AbstractAuthenticationController
             $account->setCredentialsSource($this->hashService->hashPassword($args['password']));
             $this->accountRepository->update($account);
         } else {
-            var_dump('Passwörter sind nicht identisch');
-//            $this->addFlashMessage('Passwörter sind nicht identisch', 'Fehler!', \Neos\Error\Messages\Message::SEVERITY_ERROR);
+            $this->addFlashMessage('Passwörter sind nicht identisch', 'Fehler!', \Neos\Error\Messages\Message::SEVERITY_ERROR);
         }
 
         $this->redirect('index','login');
@@ -416,8 +413,6 @@ class LoginController extends AbstractAuthenticationController
     protected function onAuthenticationFailure(\Neos\Flow\Security\Exception\AuthenticationRequiredException $exception = null)
     {
 
-//        $this->addFlashMessage('Benutzername oder Passwort falsch!', '', \Neos\Error\Messages\Message::SEVERITY_ERROR);
-//        $this->view->assign('error', 'Benutzername oder Passwort falsch!');
     }
 
     /**
@@ -426,8 +421,6 @@ class LoginController extends AbstractAuthenticationController
     public function logoutAction()
     {
         parent::logoutAction();
-//        $this->redirectToUri('/');
-//        $this->addFlashMessage('Logout successful');
         $this->redirect('login', 'login');
     }
 
