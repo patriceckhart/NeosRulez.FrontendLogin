@@ -60,6 +60,7 @@ class Login
 
     /**
      * @var string
+     * @ORM\Column(nullable=true)
      */
     protected $company;
 
@@ -214,6 +215,7 @@ class Login
 
     /**
      * @var string
+     * @ORM\Column(nullable=true)
      */
     protected $phone;
 
