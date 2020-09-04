@@ -38,6 +38,7 @@ class Login
 
     /**
      * @var integer
+     * @ORM\Column(nullable=true)
      */
     protected $salutation;
 
@@ -83,6 +84,7 @@ class Login
 
     /**
      * @var string
+     * @ORM\Column(nullable=true)
      */
     protected $firstname;
 
@@ -105,6 +107,7 @@ class Login
 
     /**
      * @var string
+     * @ORM\Column(nullable=true)
      */
     protected $lastname;
 
@@ -127,6 +130,7 @@ class Login
 
     /**
      * @var string
+     * @ORM\Column(nullable=true)
      */
     protected $address;
 
@@ -149,6 +153,7 @@ class Login
 
     /**
      * @var integer
+     * @ORM\Column(nullable=true)
      */
     protected $zip;
 
@@ -171,6 +176,7 @@ class Login
 
     /**
      * @var string
+     * @ORM\Column(nullable=true)
      */
     protected $city;
 
@@ -193,6 +199,7 @@ class Login
 
     /**
      * @var string
+     * @ORM\Column(nullable=true)
      */
     protected $country;
 

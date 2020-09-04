@@ -222,6 +222,13 @@ class LoginController extends AbstractAuthenticationController
     {
         $args = $this->request->getArguments();
 
+        $fe = false;
+
+        if (array_key_exists('login', $args)) {
+            $args = $args['login'];
+            $fe = true;
+        }
+
         if($this->loginRepository->checkIfUserExist($args['email'])) {
             $this->addFlashMessage('Es existiert bereits ein Benutzer mit diesem Benutzernamen.', 'Fehler!', \Neos\Error\Messages\Message::SEVERITY_ERROR);
         } else {
@@ -297,7 +304,7 @@ class LoginController extends AbstractAuthenticationController
                 $this->redirect('index','login');
             }
         }
-        if(isset($args['subject'])) {
+        if($fe) {
             $this->redirectToUri('/');
         } else {
             $this->redirect('index','login');
