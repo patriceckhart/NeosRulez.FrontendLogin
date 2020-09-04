@@ -369,6 +369,10 @@ class LoginController extends AbstractAuthenticationController
      */
     protected function onAuthenticationSuccess(ActionRequest $originalRequest = null) {
 
+        if ($originalRequest !== NULL) {
+            $this->redirectToRequest($originalRequest);
+        }
+
         $redirectSuccess = $this->request->getInternalArgument('__redirectSuccess');
 
         if($redirectSuccess) {
