@@ -59,6 +59,9 @@
 			<trans-unit id="groups.neosrulez_frontendlogin_group" xml:space="preserve">
 				<source>Registration</source>
 			</trans-unit>
+			<trans-unit id="properties.redirectSuccess" xml:space="preserve">
+				<source>Target page after successful login</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>

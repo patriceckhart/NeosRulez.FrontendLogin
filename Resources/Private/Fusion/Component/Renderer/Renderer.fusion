@@ -4,7 +4,7 @@ prototype(NeosRulez.FrontendLogin:Component.Renderer) < prototype(Neos.Fusion:Co
         roles = ${q(node).property('roles')}
     }
     hideCondition = ${noderoles ? site.context.inBackend || role ? false : true : false}
-    message403 = ${I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Component.Renderer:message403')}
+//    message403 = ${I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Component.Renderer:message403')}
     main = Neos.Neos:ContentCollection {
         nodePath = 'main'
     }
@@ -14,7 +14,7 @@ prototype(NeosRulez.FrontendLogin:Component.Renderer) < prototype(Neos.Fusion:Co
         </div>
         <div @if.render={props.hideCondition} class="neosrulez-frontendlogin-protectedpage">
             <div class="container">
-                {props.message403}
+                <NeosRulez.FrontendLogin:Helper.ForbiddenRedirect />
             </div>
         </div>
     `

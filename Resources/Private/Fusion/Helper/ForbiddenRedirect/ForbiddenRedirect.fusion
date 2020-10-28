@@ -1,0 +1,3 @@
+prototype(NeosRulez.FrontendLogin:Helper.ForbiddenRedirect) {
+    @class = 'NeosRulez\\FrontendLogin\\Fusion\\ForbiddenRedirectImplementation'
+}

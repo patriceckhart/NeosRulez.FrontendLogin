@@ -24,7 +24,7 @@
             <p>{f:translate(id: 'authenticated', package: 'NeosRulez.FrontendLogin', source: 'Main')}</p>
         </f:then>
         <f:else>
-            <f:form action="create" controller="User" method="post" arguments="{subject: subject}" additionalAttributes="{role:'form'}" class="form_register">
+            <f:form action="create" controller="User" method="post" arguments="{subject: subject, redirectSuccess: redirectSuccess}" additionalAttributes="{role:'form'}" class="form_register">
                 <f:if condition="{formfields.salutation}">
                     <f:form.hidden name="salutation" />
                     <div class="form-group">

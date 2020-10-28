@@ -54,6 +54,12 @@ class UserController extends ActionController
     protected $securityContext;
 
     /**
+     * @Flow\Inject
+     * @var \Neos\Neos\Service\LinkingService
+     */
+    protected $linkingService;
+
+    /**
      * @var \Neos\Flow\Security\Cryptography\HashService
      * @Flow\Inject
      */
@@ -234,6 +240,7 @@ class UserController extends ActionController
         $this->view->assign('defaultcountry',$this->settings['registration']['formfields']['country']['default']);
         $this->view->assign('formfields',$this->settings['registration']['formfields']);
         $this->view->assign('subject',$this->request->getInternalArgument('__subject'));
+        $this->view->assign('redirectSuccess',$this->request->getInternalArgument('__redirectSuccess'));
     }
 
     /**
@@ -332,7 +339,12 @@ class UserController extends ActionController
             }
         }
 
-        $this->redirect($action,'user');
+        if(isset($args['redirectSuccess'])) {
+            $redirectSuccess = $this->getNodeUri($args['redirectSuccess']);
+            $this->redirectToUri($redirectSuccess);
+        } else {
+            $this->redirect($action,'user');
+        }
 
     }
 
@@ -391,6 +403,24 @@ class UserController extends ActionController
         $this->userRepository->update($user);
         $this->persistenceManager->persistAll();
         $this->redirect('index','user');
+    }
+
+    /**
+     * @return string
+     */
+    public function getNodeUri($node) {
+        $url = $this->linkingService->createNodeUri(
+            $this->getControllerContext(),
+            $node,
+            null,
+            'html',
+            'false',
+            [],
+            '',
+            false,
+            []
+        );
+        return $url;
     }
 
 }

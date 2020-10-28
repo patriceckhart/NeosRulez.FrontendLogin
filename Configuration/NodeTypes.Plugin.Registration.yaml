@@ -28,3 +28,10 @@
         label: i18n
         inspector:
           group: 'neosrulez_frontendlogin_group'
+    redirectSuccess:
+      type: reference
+      ui:
+        reloadIfChanged: true
+        label: i18n
+        inspector:
+          group: 'neosrulez_frontendlogin_group'
