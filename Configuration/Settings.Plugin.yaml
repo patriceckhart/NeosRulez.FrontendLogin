@@ -1,7 +1,7 @@
 NeosRulez:
   FrontendLogin:
     passwordReset: true
-    adminMail: 'mail@patriceckhart.com'
+    adminMail: 'foo@bar.com'
     mail:
       templates:
         registration: 'resource://NeosRulez.FrontendLogin/Private/Templates/Mail/Registration.html'
