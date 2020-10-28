@@ -1,4 +1,0 @@
-#-
-#  requestFilter: 'isPackage("NeosRulez.FrontendLogin") && isController("User") && isAction("indexPosts")'
-#  options:
-#    templatePathAndFilename: 'resource://Raw.Site/Private/Templates/Blog/IndexPosts.html'

@@ -25,6 +25,7 @@ Neos:
         autoInclude:
           NeosRulez.FrontendLogin:
             - Main
+            - Modules
             - 'NodeTypes/*'
       defaultLanguage: 'de'
     nodeTypes:
@@ -37,18 +38,18 @@ Neos:
         NeosRulez.FrontendLogin: true
     modules:
       frontendlogin:
-        label: 'Frontend Login'
+        label: NeosRulez.FrontendLogin:Modules:module_frontendlogin_label
         controller: '\Neos\Neos\Controller\Module\ManagementController'
-        description: 'Benutzer und Gruppen für geschützten Bereich verwalten'
+        description: NeosRulez.FrontendLogin:Modules:module_frontendlogin_description
         icon: 'fas fa-unlock'
         resource: 'Neos_Neos_Backend_Module_Management'
         submodules:
           user:
-            label: 'Benutzer'
+            label: NeosRulez.FrontendLogin:Modules:submodule_user_label
             controller: '\NeosRulez\FrontendLogin\Controller\UserController'
-            description: 'Benutzer für geschützten Bereich verwalten'
+            description: NeosRulez.FrontendLogin:Modules:submodule_user_description
             icon: 'fas fa-user'
             actions:
               index:
-                label: 'Benutzer verwalten'
-                title: 'Benutzer verwalten'
+                label: NeosRulez.FrontendLogin:Modules:submodule_user_action_label
+                title: NeosRulez.FrontendLogin:Modules:submodule_user_action_title
