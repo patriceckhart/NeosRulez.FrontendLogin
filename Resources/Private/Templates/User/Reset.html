@@ -14,8 +14,8 @@
 <f:section name="Content">
     <f:form action="setnewpassword" controller="User" package="NeosRulez.FrontendLogin" method="post" arguments="{subject: subject}" additionalAttributes="{role:'form'}" class="form_reset">
         <div class="form-group">
-            <label for="inputUsername">{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</label>
-            <f:form.textfield id="inputUsername" class="form-control" name="username" placeholder="{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}" />
+            <label for="inputUsername">{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}</label>
+            <f:form.textfield id="inputUsername" class="form-control" name="username" placeholder="{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}" />
         </div>
         <div class="form-group">
             <button class="btn btn-primary btn-block" type="submit">{f:translate(id: 'resetBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</button>
