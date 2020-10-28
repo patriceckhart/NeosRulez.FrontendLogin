@@ -1,5 +1,5 @@
 {
-    "description": "A Neos CMS package that handles frontend login, user and user group management.",
+    "description": "A Neos CMS package that handles frontend login and user management.",
     "type": "neos-package",
     "name": "neosrulez/frontendlogin",
     "require": {
