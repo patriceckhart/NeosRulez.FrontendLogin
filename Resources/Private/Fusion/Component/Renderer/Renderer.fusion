@@ -1,17 +1,21 @@
 prototype(NeosRulez.FrontendLogin:Component.Renderer) < prototype(Neos.Fusion:Component) {
-
-    role = NeosRulez.FrontendLogin:Helper.RoleHelper {
+    @context.noderoles = ${q(node).property('roles')}
+    @context.role = NeosRulez.FrontendLogin:Helper.RoleHelper {
         roles = ${q(node).property('roles')}
     }
-
+    hideCondition = ${noderoles ? site.context.inBackend || role ? false : true : false}
     message403 = ${I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Component.Renderer:message403')}
-
+    main = Neos.Neos:ContentCollection {
+        nodePath = 'main'
+    }
     renderer = afx`
-        <div @if.render={props.role} class="neosrulez-frontendlogin">
-            {props.content}
+        <div @if.render={!props.hideCondition} class="neosrulez-frontendlogin-protectedpage">
+            {props.main}
         </div>
-        <div @if.render={!props.role} class="neosrulez-frontendlogin">
-            {props.message403}
+        <div @if.render={props.hideCondition} class="neosrulez-frontendlogin-protectedpage">
+            <div class="container">
+                {props.message403}
+            </div>
         </div>
     `
 }

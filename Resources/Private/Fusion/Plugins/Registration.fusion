@@ -1,6 +1,6 @@
 prototype(NeosRulez.FrontendLogin:Plugin.Registration) < prototype(Neos.Neos:Plugin) {
     package = 'NeosRulez.FrontendLogin'
-    controller = 'Login'
+    controller = 'User'
     action = 'registration'
     node = ${q(node)}
     subject = ${q(node).property('subject')}

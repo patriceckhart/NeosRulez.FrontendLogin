@@ -10,13 +10,13 @@
       tabs:
         neosrulez_frontendlogin_tab:
           label: i18n
-          icon: 'fas fa-unlock'
+          icon: 'fas fa-user-edit'
           position: 9998
       groups:
         neosrulez_frontendlogin_group:
           tab: 'neosrulez_frontendlogin_tab'
           label: i18n
-          icon: 'fas fa-unlock'
+          icon: 'fas fa-user-edit'
   properties:
     roles:
       ui: ~

@@ -35,6 +35,12 @@
 			<trans-unit id="properties.resetPasswordSubject" xml:space="preserve">
 				<source>Passwort zurücksetzen E-Mail Betreff</source>
 			</trans-unit>
+			<trans-unit id="tabs.neosrulez_frontendlogin_tab" xml:space="preserve">
+				<source>Frontend Login</source>
+			</trans-unit>
+			<trans-unit id="groups.neosrulez_frontendlogin_group" xml:space="preserve">
+				<source>Frontend Login</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>

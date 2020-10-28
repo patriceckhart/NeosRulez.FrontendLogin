@@ -1,7 +1,7 @@
 'NeosRulez.FrontendLogin:Document.ProtectedPage':
   superTypes:
     'Neos.Neos:Document': true
-    'NeosRulez.FrontendLogin:Mixin.Page': true
+    'NeosRulez.FrontendLogin:Mixin.Roles': true
   ui:
     label: i18n
     icon: 'far fa-user'

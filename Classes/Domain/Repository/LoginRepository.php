@@ -33,13 +33,6 @@ class LoginRepository extends Repository
      */
     protected $authenticationManager;
 
-    public function checkIfUserExist($username) {
-        $class = '\NeosRulez\FrontendLogin\Domain\Model\Login';
-        $query = $this->persistenceManager->createQueryForType($class);
-        $result = $query->matching($query->equals('username', $username))->execute()->getFirst();
-        return $result;
-    }
-
     public function getRoles() {
         $roles = $this->policyService->getRoles();
         foreach ($roles as $i => $value) {
@@ -61,6 +54,13 @@ class LoginRepository extends Repository
             $ident = $account->getAccountIdentifier();
             return $ident;
         }
+    }
+
+    public function checkIfUserExist($username) {
+        $class = '\NeosRulez\FrontendLogin\Domain\Model\User';
+        $query = $this->persistenceManager->createQueryForType($class);
+        $result = $query->matching($query->equals('username', $username))->execute()->getFirst();
+        return $result;
     }
 
 }

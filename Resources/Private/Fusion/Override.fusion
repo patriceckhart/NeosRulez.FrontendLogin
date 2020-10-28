@@ -1,0 +1,15 @@
+prototype(Neos.Neos:ContentCase) {
+    @context.noderoles = ${q(node).property('roles')}
+    @context.role = NeosRulez.FrontendLogin:Helper.RoleHelper {
+        roles = ${q(node).property('roles')}
+    }
+    if = Neos.Fusion:Matcher {
+        condition = ${noderoles ? site.context.inBackend || role ? false : true : false}
+        renderer = ''
+    }
+}
+
+prototype(Neos.Neos:Content) {
+    @context.neosrulez_frontendlogin_roles = ${q(node).property('roles')}
+    attributes.class = ${neosrulez_frontendlogin_roles && site.context.inBackend ? attributes.class + ' restricted-content' : attributes.class}
+}

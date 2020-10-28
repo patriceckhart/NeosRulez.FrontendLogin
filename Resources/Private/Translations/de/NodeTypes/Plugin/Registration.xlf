@@ -53,6 +53,12 @@
             <trans-unit id="privacy" xml:space="preserve">
 				<source>Ich akzeptiere die Verarbeitung und Speicherung der oben angegebenen Daten gemäß der Datenschutzrichtlinien.</source>
 			</trans-unit>
+			<trans-unit id="tabs.neosrulez_frontendlogin_tab" xml:space="preserve">
+				<source>Registrierung</source>
+			</trans-unit>
+			<trans-unit id="groups.neosrulez_frontendlogin_group" xml:space="preserve">
+				<source>Registrierung</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>

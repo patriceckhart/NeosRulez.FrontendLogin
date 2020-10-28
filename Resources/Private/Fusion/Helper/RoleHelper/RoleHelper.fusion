@@ -1,3 +1,4 @@
 prototype(NeosRulez.FrontendLogin:Helper.RoleHelper) {
     @class = 'NeosRulez\\FrontendLogin\\Fusion\\RoleImplementation'
+    roles = false
 }

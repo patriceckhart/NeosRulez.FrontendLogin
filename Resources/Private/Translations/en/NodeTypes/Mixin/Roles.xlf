@@ -9,7 +9,7 @@
 				<source>Frontend Login</source>
 			</trans-unit>
             <trans-unit id="properties.roles" xml:space="preserve">
-				<source>Usergroup</source>
+				<source>Usergroups</source>
 			</trans-unit>
         </body>
     </file>

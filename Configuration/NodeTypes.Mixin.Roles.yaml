@@ -1,17 +1,17 @@
-'NeosRulez.FrontendLogin:Mixin.Page':
+'NeosRulez.FrontendLogin:Mixin.Roles':
   abstract: true
   ui:
     inspector:
       tabs:
         neosrulez_frontendlogin_tab:
           label: i18n
-          icon: 'fas fa-unlock'
+          icon: 'far fa-user'
           position: 9998
       groups:
         neosrulez_frontendlogin_group:
           tab: 'neosrulez_frontendlogin_tab'
           label: i18n
-          icon: 'fas fa-unlock'
+          icon: 'far fa-user'
   properties:
     roles:
       defaultValue: ''

@@ -7,7 +7,7 @@ Neos:
             requestPatterns:
               'Neos.Neos.FrontendLogin:NeosBackend':
                 pattern: NeosRulez\FrontendLogin\Security\NeosRequestPattern
-          'NeosRulez.FrontendLogin:Frontend':
+          'NeosRulez.FrontendLogin:NeosFrontend':
             provider: PersistedUsernamePasswordProvider
             requestPatterns:
               'NeosRulez.FrontendLogin:NeosFrontend':
@@ -36,18 +36,18 @@ Neos:
       autoInclude:
         NeosRulez.FrontendLogin: true
     modules:
-      login:
+      frontendlogin:
         label: 'Frontend Login'
         controller: '\Neos\Neos\Controller\Module\ManagementController'
         description: 'Benutzer und Gruppen für geschützten Bereich verwalten'
         icon: 'fas fa-unlock'
         resource: 'Neos_Neos_Backend_Module_Management'
         submodules:
-          login:
+          user:
             label: 'Benutzer'
-            controller: '\NeosRulez\FrontendLogin\Controller\LoginController'
+            controller: '\NeosRulez\FrontendLogin\Controller\UserController'
             description: 'Benutzer für geschützten Bereich verwalten'
-            icon: 'icon-user'
+            icon: 'fas fa-user'
             actions:
               index:
                 label: 'Benutzer verwalten'

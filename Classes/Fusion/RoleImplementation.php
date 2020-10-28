@@ -13,7 +13,7 @@ class RoleImplementation extends AbstractFusionObject {
     protected $securityContext;
 
     /**
-     * @return string
+     * @return boolean
      */
     public function evaluate() {
         $roles = $this->fusionValue('roles');

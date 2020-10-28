@@ -1,6 +1,6 @@
 prototype(NeosRulez.FrontendLogin:Plugin.Login) < prototype(Neos.Neos:Plugin) {
     package = 'NeosRulez.FrontendLogin'
-    controller = 'Login'
+    controller = 'User'
     action = 'login'
     node = ${q(node)}
     subject = ${q(node).property('resetPasswordSubject')}

@@ -12,7 +12,7 @@
     </f:if>
 </div>
 <f:section name="Content">
-    <f:form action="setnewpassword" method="post" arguments="{subject: subject}" additionalAttributes="{role:'form'}" class="form_reset">
+    <f:form action="setnewpassword" controller="User" package="NeosRulez.FrontendLogin" method="post" arguments="{subject: subject}" additionalAttributes="{role:'form'}" class="form_reset">
         <div class="form-group">
             <label for="inputUsername">{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}</label>
             <f:form.textfield id="inputUsername" class="form-control" name="username" placeholder="{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/RegistrationForm')}" />

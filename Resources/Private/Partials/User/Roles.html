@@ -1,0 +1,23 @@
+<legend>{f:translate(id: 'properties.roles', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Mixin/Page')}</legend>
+<div class="neos-control-group">
+    <f:if condition="{account.roles}">
+        <f:then>
+            <f:for each="{combinedroles}" as="combinedrole" iteration="combinedroleIterator">
+                <f:render section="roleitem" arguments="{roleIterator: combinedroleIterator, role: combinedrole.role, checked: combinedrole.checked}" />
+            </f:for>
+        </f:then>
+        <f:else>
+            <f:for each="{roles}" as="role" iteration="roleIterator">
+                <f:render section="roleitem" arguments="{_all}" />
+            </f:for>
+        </f:else>
+    </f:if>
+</div>
+<f:section name="roleitem">
+    <div class="neos-controls">
+        <label for="roles-{roleIterator.index}" class="neos-checkbox" title="{role}" data-neos-toggle="tooltip" data-placement="right">
+            <input id="roles-{roleIterator.index}" type="checkbox" name="moduleArguments[login][role][]" value="{role}"{f:if(condition='{checked}==1', then:' checked')}><span></span>
+            {role}
+        </label>
+    </div>
+</f:section>

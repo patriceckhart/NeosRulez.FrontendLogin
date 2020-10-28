@@ -1,7 +1,8 @@
 {namespace neos=Neos\Neos\ViewHelpers}
 {namespace fusion=Neos\Fusion\ViewHelpers}
+<f:security.ifHasRole role="Neos.Neos:AbstractEditor">
 <f:flashMessages severity="Error" />
-<f:if condition="{logins}">
+<f:if condition="{users}">
     <f:then>
         <table class="neos-table">
             <thead>
@@ -19,12 +20,19 @@
             </tr>
             </thead>
             <tbody>
-            <f:for each="{logins}" as="login">
+            <f:for each="{users}" as="user">
                 <tr>
-                    <td>{login.username}</td>
-                    <td>{login.company}</td>
                     <td>
-                        <f:if condition="{login.salutation}==1">
+                        <span style="display:block;">{user.0.username}</span>
+                        <f:for each="{user.roles}" as="role">
+                            <f:if condition="{role.checked}">
+                                <span class="neos-badge" style="display:block; margin-top: -5px; margin-bottom:10px;">{role.role}</span>
+                            </f:if>
+                        </f:for>
+                    </td>
+                    <td>{user.0.company}</td>
+                    <td>
+                        <f:if condition="{user.0.salutation}==1">
                             <f:then>
                                 {f:translate(id: 'salutation.male', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}
                             </f:then>
@@ -33,13 +41,13 @@
                             </f:else>
                         </f:if>
                     </td>
-                    <td>{login.firstname} {login.lastname}</td>
-                    <td>{login.address}</td>
-                    <td>{login.zip} {login.city}</td>
-                    <td>{login.country}</td>
-                    <td>{login.email}</td>
+                    <td>{user.0.firstname} {user.0.lastname}</td>
+                    <td>{user.0.address}</td>
+                    <td>{user.0.zip} {user.0.city}</td>
+                    <td>{user.0.country}</td>
+                    <td>{user.0.email}</td>
                     <td>
-                        <f:if condition="{login.active}==1">
+                        <f:if condition="{user.0.active}==1">
                             <f:then>
                                 <span class="neos-badge neos-badge-success">{f:translate(id: 'active', package: 'NeosRulez.FrontendLogin', source: 'Main')}</span>
                             </f:then>
@@ -50,9 +58,9 @@
                     </td>
                     <td class="neos-action">
                         <div class="neos-pull-right">
-                            <f:link.action class="neos-button neos-button-primary" action="edit" arguments="{login: login}"><i class="fas fa-pencil-alt"></i></f:link.action>
-                            <f:link.action class="neos-button neos-button-{f:if(condition: '{login.active}==1', then: 'warning', else: 'success')}" action="change" arguments="{login: login}">
-                                <f:if condition="{login.active}==1">
+                            <f:link.action class="neos-button neos-button-primary" action="edit" arguments="{user: user.0}"><i class="fas fa-pencil-alt"></i></f:link.action>
+                            <f:link.action class="neos-button neos-button-{f:if(condition: '{user.0.active}==1', then: 'warning', else: 'success')}" action="change" arguments="{user: user.0}">
+                                <f:if condition="{user.0.active}==1">
                                     <f:then>
                                         <i class="fas fa-toggle-on" style="color:#00a338;"></i>
                                     </f:then>
@@ -76,3 +84,4 @@
 <div class="neos-footer">
     <f:link.action class="neos-button neos-button-primary" action="new">{f:translate(id: 'createnew', package: 'NeosRulez.FrontendLogin', source: 'Main')}</f:link.action>
 </div>
+</f:security.ifHasRole>

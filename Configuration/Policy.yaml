@@ -2,6 +2,8 @@ privilegeTargets:
   Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
     'NeosRulez.FrontendLogin:LoginControllerActions':
       matcher: 'method(Neos\Flow\Security\Authentication\Controller\AbstractAuthenticationController->.*Action()) || method(NeosRulez\FrontendLogin\Controller\LoginController->.*Action())'
+    'NeosRulez.FrontendLogin:UserControllerActions':
+      matcher: 'method(NeosRulez\FrontendLogin\Controller\UserController->.*Action())'
 
 roles:
   'Neos.Flow:Everybody':
@@ -9,10 +11,8 @@ roles:
       -
         privilegeTarget: 'NeosRulez.FrontendLogin:LoginControllerActions'
         permission: GRANT
-  'NeosRulez.FrontendLogin:AbstractUser':
-    abstract: true
+      -
+        privilegeTarget: 'NeosRulez.FrontendLogin:UserControllerActions'
+        permission: GRANT
   'NeosRulez.FrontendLogin:FrontendUser':
-    parentRoles: ['NeosRulez.FrontendLogin:AbstractUser']
-  'Neos.Neos:AbstractEditor':
-    parentRoles:
-      'NeosRulez.FrontendLogin:FrontendUser': 'NeosRulez.FrontendLogin:FrontendUser'
+    privileges: [ ]

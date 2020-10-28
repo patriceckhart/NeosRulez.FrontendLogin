@@ -1,0 +1,14 @@
+prototype(NeosRulez.FrontendLogin:Document.ProtectedPage) < prototype(Neos.Neos:Page)
+
+prototype(Neos.Neos:PrimaryContent).protectedpage {
+    condition = ${q(documentNode).is('[instanceof NeosRulez.FrontendLogin:Document.ProtectedPage]')}
+    type = 'NeosRulez.FrontendLogin:Component.Renderer'
+}
+
+## If you use something other than PrimaryContent
+//prototype(NeosRulez.FrontendLogin:Document.ProtectedPage) < prototype(Raw.Site:Document.AbstractPage) {
+//    body.content = Neos.Neos:PrimaryContent {
+//        condition = ${q(documentNode).is('[instanceof NeosRulez.FrontendLogin:Document.ProtectedPage]')}
+//        type = 'NeosRulez.FrontendLogin:Component.Renderer'
+//    }
+//}

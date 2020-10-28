@@ -11,6 +11,12 @@
             <trans-unit id="authenticated" xml:space="preserve">
 				<source>Sie sind bereits eingeloggt.</source>
 			</trans-unit>
+			<trans-unit id="authenticated_part1" xml:space="preserve">
+				<source>Sie sind bereits als</source>
+			</trans-unit>
+			<trans-unit id="authenticated_part2" xml:space="preserve">
+				<source>eingeloggt.</source>
+			</trans-unit>
             <trans-unit id="userexist" xml:space="preserve">
 				<source>Es existiert bereits ein Benutzer mit dieser E-Mail Adresse.</source>
 			</trans-unit>
