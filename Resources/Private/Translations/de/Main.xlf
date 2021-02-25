@@ -47,6 +47,12 @@
 			<trans-unit id="inactive" xml:space="preserve">
                 <source>Inaktiv</source>
             </trans-unit>
+			<trans-unit id="failureMessage" xml:space="preserve">
+				<source>Ihr Benutzername oder Ihr Passwort sind nicht korrekt.</source>
+			</trans-unit>
+			<trans-unit id="failureTitle" xml:space="preserve">
+				<source>Fehler!</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>

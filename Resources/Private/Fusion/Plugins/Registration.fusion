@@ -3,8 +3,13 @@ prototype(NeosRulez.FrontendLogin:Plugin.Registration) < prototype(Neos.Neos:Plu
     controller = 'User'
     action = 'registration'
     node = ${q(node)}
+    inBackend = ${site.context.inBackend}
     subject = ${q(node).property('subject')}
     redirectSuccess = ${q(node).property('redirectSuccess')}
+    redirectSuccessNodeUri = Neos.Neos:NodeUri {
+        node = ${q(node).property('redirectSuccess')}
+        absolute = true
+    }
 //    @cache {
 //        mode = 'uncached'
 //        context {

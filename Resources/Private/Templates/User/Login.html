@@ -1,24 +1,33 @@
 {namespace neos=Neos\Neos\ViewHelpers}
 {namespace fusion=Neos\Fusion\ViewHelpers}
 <div{attributes -> f:format.raw()}>
-    <f:if condition="!{node.context.inBackend}">
+    <f:if condition="!{inBackend}">
         <f:then>
             <f:flashMessages severity="Error" />
             <f:render section="Content" arguments="{_all}" />
         </f:then>
         <f:else>
-            <code>{f:translate(id: 'backend', package: 'NeosRulez.FrontendLogin', source: 'Main')}</code>
+            <code><strong>{f:translate(id: 'ui.label', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}:</strong><br />
+                {f:translate(id: 'backend', package: 'NeosRulez.FrontendLogin', source: 'Main')}</code>
         </f:else>
     </f:if>
 </div>
 <f:section name="Content">
     <f:security.ifAuthenticated>
         <f:then>
-            <p>{f:translate(id: 'authenticated_part1', package: 'NeosRulez.FrontendLogin', source: 'Main')} <strong>{username}</strong> {f:translate(id: 'authenticated_part2', package: 'NeosRulez.FrontendLogin', source: 'Main')}</p>
-            <p><f:link.action action="logout" controller="Login" class="btn btn-primary">{f:translate(id: 'logoutBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</f:link.action></p>
+            <f:if condition="!{inBackend}">
+                <f:then>
+                    <p>{f:translate(id: 'authenticated_part1', package: 'NeosRulez.FrontendLogin', source: 'Main')} <strong>{username}</strong> {f:translate(id: 'authenticated_part2', package: 'NeosRulez.FrontendLogin', source: 'Main')}</p>
+                    <p><f:link.action action="logout" controller="Login" class="btn btn-primary">{f:translate(id: 'logoutBtnLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</f:link.action></p>
+                </f:then>
+                <f:else>
+                    <code><strong>{f:translate(id: 'ui.label', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}:</strong><br />
+                        {f:translate(id: 'backend', package: 'NeosRulez.FrontendLogin', source: 'Main')}</code>
+                </f:else>
+            </f:if>
         </f:then>
         <f:else>
-            <f:form action="authenticate" controller="Login" package="NeosRulez.FrontendLogin" method="post" arguments="{redirectSuccess: redirectSuccess}" additionalAttributes="{role:'form'}" class="form_signin">
+            <f:form action="authenticate" controller="Login" package="NeosRulez.FrontendLogin" method="post" arguments="{redirectSuccess: redirectSuccessNodeUri}" additionalAttributes="{role:'form'}" class="form_signin">
                 <div class="form-group">
                     <label for="inputUsername">{f:translate(id: 'usernameLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}</label>
                     <input type="text" id="inputUsername" class="form-control" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][username]" placeholder="{f:translate(id: 'usernameLabel', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Login')}" required="required" autofocus="autofocus">

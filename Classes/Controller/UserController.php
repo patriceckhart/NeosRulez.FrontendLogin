@@ -123,6 +123,8 @@ class UserController extends ActionController
         $this->view->assign('attributes',$this->request->getInternalArgument('__attributes'));
         $this->view->assign('allowreset',$this->settings['passwordReset']);
         $this->view->assign('redirectSuccess',$this->request->getInternalArgument('__redirectSuccess'));
+        $this->view->assign('redirectSuccessNodeUri',$this->request->getInternalArgument('__redirectSuccessNodeUri'));
+        $this->view->assign('inBackend',$this->request->getInternalArgument('__inBackend'));
         $this->view->assign('username',$this->loginRepository->getUsername());
     }
 
@@ -241,6 +243,8 @@ class UserController extends ActionController
         $this->view->assign('formfields',$this->settings['registration']['formfields']);
         $this->view->assign('subject',$this->request->getInternalArgument('__subject'));
         $this->view->assign('redirectSuccess',$this->request->getInternalArgument('__redirectSuccess'));
+        $this->view->assign('redirectSuccessNodeUri',$this->request->getInternalArgument('__redirectSuccessNodeUri'));
+        $this->view->assign('inBackend',$this->request->getInternalArgument('__inBackend'));
     }
 
     /**
@@ -340,7 +344,8 @@ class UserController extends ActionController
         }
 
         if(isset($args['redirectSuccess'])) {
-            $redirectSuccess = $this->getNodeUri($args['redirectSuccess']);
+//            $redirectSuccess = $this->getNodeUri($args['redirectSuccess']);
+            $redirectSuccess = $args['redirectSuccess'];
             $this->redirectToUri($redirectSuccess);
         } else {
             $this->redirect($action,'user');

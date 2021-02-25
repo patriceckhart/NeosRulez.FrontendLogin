@@ -3,8 +3,13 @@ prototype(NeosRulez.FrontendLogin:Plugin.Login) < prototype(Neos.Neos:Plugin) {
     controller = 'User'
     action = 'login'
     node = ${q(node)}
+    inBackend = ${site.context.inBackend}
     subject = ${q(node).property('resetPasswordSubject')}
     redirectSuccess = ${q(node).property('redirectSuccess')}
+    redirectSuccessNodeUri = Neos.Neos:NodeUri {
+        node = ${q(node).property('redirectSuccess')}
+        absolute = true
+    }
 //    redirectFailure = ${q(node).property('redirectFailure')}
 //    @cache {
 //        mode = 'uncached'

@@ -1,7 +1,7 @@
 {namespace neos=Neos\Neos\ViewHelpers}
 {namespace fusion=Neos\Fusion\ViewHelpers}
 <div{attributes -> f:format.raw()}>
-    <f:if condition="!{node.context.inBackend}">
+    <f:if condition="!{inBackend}">
         <f:then>
             <f:comment>
             <f:if condition="{message}">
@@ -14,7 +14,8 @@
             <f:render section="Content" arguments="{_all}" />
         </f:then>
         <f:else>
-            <code>{f:translate(id: 'backend', package: 'NeosRulez.FrontendLogin', source: 'Main')}</code>
+            <code><strong>{f:translate(id: 'ui.label', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}:</strong><br />
+                {f:translate(id: 'backend', package: 'NeosRulez.FrontendLogin', source: 'Main')}</code>
         </f:else>
     </f:if>
 </div>
@@ -24,7 +25,7 @@
             <p>{f:translate(id: 'authenticated', package: 'NeosRulez.FrontendLogin', source: 'Main')}</p>
         </f:then>
         <f:else>
-            <f:form action="create" controller="User" method="post" arguments="{subject: subject, redirectSuccess: redirectSuccess}" additionalAttributes="{role:'form'}" class="form_register">
+            <f:form action="create" controller="User" method="post" arguments="{subject: subject, redirectSuccess: redirectSuccessNodeUri}" additionalAttributes="{role:'form'}" class="form_register">
                 <f:if condition="{formfields.salutation}">
                     <f:form.hidden name="salutation" />
                     <div class="form-group">
