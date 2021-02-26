@@ -62,6 +62,9 @@
 			<trans-unit id="properties.redirectSuccess" xml:space="preserve">
 				<source>Target page after successful login</source>
 			</trans-unit>
+			<trans-unit id="created" xml:space="preserve">
+				<source>Created</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>

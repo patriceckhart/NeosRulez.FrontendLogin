@@ -147,6 +147,6 @@
     <f:form.hidden name="email" />
     <div class="form-group">
         <label for="email">{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')} {f:if(condition='{formfields.email.required}', then:'<sup>*</sup>')}</label>
-        <input type="text" name="--neosrulez_frontendlogin-plugin_registration[email]" id="email" class="form-control" placeholder="{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}" {f:if(condition='{formfields.email.required}', then:'required="required"')} />
+        <input type="email" name="--neosrulez_frontendlogin-plugin_registration[email]" id="email" class="form-control" placeholder="{f:translate(id: 'email', package: 'NeosRulez.FrontendLogin', source: 'NodeTypes/Plugin/Registration')}" {f:if(condition='{formfields.email.required}', then:'required="required"')} />
     </div>
 </f:section>

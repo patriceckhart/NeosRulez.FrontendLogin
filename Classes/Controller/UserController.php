@@ -253,6 +253,7 @@ class UserController extends ActionController
     public function createAction()
     {
         $args = $this->request->getArguments();
+        $args['email'] = strtolower($args['email']);
 
         $fe = false;
         $action = 'index';
@@ -276,27 +277,6 @@ class UserController extends ActionController
                     $defaultRole[] = $this->settings['registration']['defaultRole'];
                 }
                 $authenticationProviderName = 'NeosRulez.FrontendLogin:NeosFrontend';
-
-                $this->userService->createUser($args['email'], $args['password'], $args['firstname'], $args['lastname'], $defaultRole, $authenticationProviderName);
-
-                if(isset($args['subject'])) {
-                    $subject = $args['subject'];
-                    $view = new \Neos\FluidAdaptor\View\StandaloneView();
-                    $view->setTemplatePathAndFilename($this->settings['mail']['templates']['registration']);
-                    $view->assignMultiple(['props' => $args]);
-
-                    $mail = new \Neos\SwiftMailer\Message();
-                    $mail
-                        ->setFrom($this->settings['adminMail'])
-                        ->setTo(array($args['email'] => $args['firstname'].' '.$args['lastname']))
-                        ->setSubject($subject);
-                    $mail->setBody($view->render(), 'text/html');
-                    $mail->send();
-
-                    unset($args['subject']);
-                    unset($args['password']);
-                    unset($args['password2']);
-                }
 
                 $user = new \NeosRulez\FrontendLogin\Domain\Model\User();
 
@@ -335,6 +315,27 @@ class UserController extends ActionController
                 $user->setActive($this->settings['registration']['autoActive']);
 
                 $this->userRepository->add($user);
+
+                $this->userService->createUser($args['email'], $args['password'], $args['firstname'], $args['lastname'], $defaultRole, $authenticationProviderName);
+
+                if(isset($args['subject'])) {
+                    $subject = $args['subject'];
+                    $view = new \Neos\FluidAdaptor\View\StandaloneView();
+                    $view->setTemplatePathAndFilename($this->settings['mail']['templates']['registration']);
+                    $view->assignMultiple(['props' => $args]);
+
+                    $mail = new \Neos\SwiftMailer\Message();
+                    $mail
+                        ->setFrom($this->settings['adminMail'])
+                        ->setTo(array($args['email'] => $args['firstname'].' '.$args['lastname']))
+                        ->setSubject($subject);
+                    $mail->setBody($view->render(), 'text/html');
+                    $mail->send();
+
+                    unset($args['subject']);
+                    unset($args['password']);
+                    unset($args['password2']);
+                }
 
                 if(isset($args['subject'])) {
                     $this->addFlashMessage('Ihr Account wurde erstellt.');
