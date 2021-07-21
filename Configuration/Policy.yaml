@@ -34,5 +34,3 @@ roles:
       -
         privilegeTarget: 'NeosRulez.FrontendLogin:ProtectedNode'
         permission: GRANT
-  'NeosRulez.FrontendLogin:FrontendUser2':
-    parentRoles: [ 'NeosRulez.FrontendLogin:FrontendUser' ]
