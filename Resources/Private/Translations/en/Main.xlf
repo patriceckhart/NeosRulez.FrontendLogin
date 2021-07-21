@@ -2,56 +2,35 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file original="" product-name="NeosRulez.FrontendLogin" source-language="en" datatype="plaintext">
         <body>
-            <trans-unit id="felogin" xml:space="preserve">
+            <trans-unit id="inspector.group.label" xml:space="preserve">
 				<source>Frontend Login</source>
 			</trans-unit>
-            <trans-unit id="backend" xml:space="preserve">
-				<source>The form is not displayed in the backend.</source>
+            <trans-unit id="content.inBackend" xml:space="preserve">
+				<source>The form is not displayed in the backend</source>
 			</trans-unit>
-            <trans-unit id="authenticated" xml:space="preserve">
-				<source>You are already logged in.</source>
+            <trans-unit id="failure.title" xml:space="preserve">
+				<source>Error</source>
 			</trans-unit>
-			<trans-unit id="authenticated_part1" xml:space="preserve">
-				<source>You are already logged in as</source>
+            <trans-unit id="failure.message" xml:space="preserve">
+				<source>Wrong Username or password</source>
 			</trans-unit>
-			<trans-unit id="authenticated_part2" xml:space="preserve">
-				<source>.</source>
+            <trans-unit id="failure.userexist" xml:space="preserve">
+				<source>A user with this user name already exists</source>
 			</trans-unit>
-            <trans-unit id="userexist" xml:space="preserve">
-				<source>A user with this email address already exists.</source>
+            <trans-unit id="success.usercreated" xml:space="preserve">
+				<source>Registration is complete. You will receive your access data by email at</source>
 			</trans-unit>
-            <trans-unit id="accountcreated" xml:space="preserve">
-				<source>Your account was created.</source>
+            <trans-unit id="success.userupdated" xml:space="preserve">
+				<source>Your data has been successfully changed</source>
 			</trans-unit>
-			<trans-unit id="name" xml:space="preserve">
-				<source>Name</source>
+            <trans-unit id="success.passwordsent" xml:space="preserve">
+				<source>Your password has been reset and sent to the email address you provided</source>
 			</trans-unit>
-			<trans-unit id="nousers" xml:space="preserve">
-				<source>No users available</source>
+            <trans-unit id="failure.password" xml:space="preserve">
+				<source>The passwords you entered are not identical</source>
 			</trans-unit>
-			<trans-unit id="createnew" xml:space="preserve">
-				<source>Create new user</source>
-			</trans-unit>
-			<trans-unit id="save" xml:space="preserve">
-				<source>Save</source>
-			</trans-unit>
-			<trans-unit id="ifAuthenticated" xml:space="preserve">
-                <source>If authenticated</source>
-            </trans-unit>
-			<trans-unit id="ifNotAuthenticated" xml:space="preserve">
-                <source>If not authenticated</source>
-            </trans-unit>
-			<trans-unit id="active" xml:space="preserve">
-                <source>Activ</source>
-            </trans-unit>
-			<trans-unit id="inactive" xml:space="preserve">
-                <source>Inactiv</source>
-            </trans-unit>
-			<trans-unit id="failureMessage" xml:space="preserve">
-				<source>Your username or password is incorrect.</source>
-			</trans-unit>
-			<trans-unit id="failureTitle" xml:space="preserve">
-				<source>Error!</source>
+            <trans-unit id="success.usercreated.backend" xml:space="preserve">
+				<source>User was created</source>
 			</trans-unit>
         </body>
     </file>

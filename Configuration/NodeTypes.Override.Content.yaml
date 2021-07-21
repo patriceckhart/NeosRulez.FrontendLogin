@@ -1,7 +1,0 @@
-'Neos.Neos:Content':
-  superTypes:
-    'NeosRulez.FrontendLogin:Mixin.Roles': true
-  properties:
-    roles:
-      ui:
-        showInCreationDialog: false

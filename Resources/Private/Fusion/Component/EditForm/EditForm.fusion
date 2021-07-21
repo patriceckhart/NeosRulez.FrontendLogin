@@ -1,0 +1,12 @@
+prototype(NeosRulez.FrontendLogin:Component.EditForm) < prototype(NeosRulez.FrontendLogin:Component.RegistrationForm) {
+
+    @context.edit = true
+
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+}

@@ -7,12 +7,57 @@ namespace NeosRulez\FrontendLogin\Domain\Model;
 
 use Neos\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @Flow\Entity
  */
 class User
 {
+
+    /**
+     * @var \Neos\Flow\Security\Account
+     * @ORM\OneToOne(cascade={"persist", "remove"})
+     */
+    protected $account;
+
+    /**
+     * @return \Neos\Flow\Security\Account
+     */
+    public function getAccount()
+    {
+        return $this->account;
+    }
+
+    /**
+     * @param \Neos\Flow\Security\Account $account
+     */
+    public function setAccount($account)
+    {
+        $this->account = $account;
+    }
+
+    /**
+     * @var Collection<\NeosRulez\FrontendLogin\Domain\Model\UserGroup>
+     * @ORM\ManyToMany
+     */
+    protected $usergroups;
+
+    /**
+     * @return \NeosRulez\FrontendLogin\Domain\Model\UserGroup
+     */
+    public function getUsergroups()
+    {
+        return $this->usergroups;
+    }
+
+    /**
+     * @param Collection $usergroups
+     */
+    public function setUsergroups($usergroups)
+    {
+        $this->usergroups = $usergroups;
+    }
 
     /**
      * @var string

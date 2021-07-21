@@ -1,0 +1,132 @@
+prototype(NeosRulez.FrontendLogin:Component.RegistrationForm) < prototype(Neos.Fusion:Component) {
+
+    redirect = ${node.properties.redirect}
+    redirect.@process.convertUris = Neos.Neos:ConvertUris {
+        forceConversion = true
+    }
+    user = NeosRulez.FrontendLogin:Class.User
+    inBackend = ${site.context.inBackend}
+
+    renderer = afx`
+        <NeosRulez.FrontendLogin:Component.BackendMessage />
+        <Neos.Fusion.Form:Form @if.render={(!props.inBackend && !edit && !props.user) || (!props.inBackend && props.user && edit) ? true : false} attributes.id={edit ? 'edit__form' : 'registration__form'} form.target.action={edit ? 'update' : 'create'} form.target.controller="User" form.target.package="NeosRulez.FrontendLogin" attributes.name={edit ? 'edit' : 'create'} form.data.user={props.user} >
+
+            <Neos.Fusion.Form:Hidden field.name="args[target]" attributes.value={props.redirect} />
+
+            <div @if.render={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.salutation')} class="mb-3" id="registration__form_salutation">
+                <label for="salutation" class="form-label">{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.salutation')}</label>
+                <Neos.Fusion.Form:Select attributes.id="salutation" field.name="user[salutation]" attributes.class="form-select" attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.salutation.required')} >
+                    <NeosRulez.FrontendLogin:Component.Salutation />
+                </Neos.Fusion.Form:Select>
+            </div>
+
+            <div @if.render={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.company')} class="mb-3" id="registration__form_company">
+                <label for="company" class="form-label">{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.company')}</label>
+                <Neos.Fusion.Form:Input attributes.id="company" field.name="user[company]" attributes.class="form-control" attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.company')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.company.required')} />
+            </div>
+
+            <div @if.render={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.name')} class="row">
+                <div class="col-md-6">
+                    <div class="mb-3" id="registration__form_firstname">
+                        <label for="firstname" class="form-label">{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.firstname')}</label>
+                        <Neos.Fusion.Form:Input attributes.id="firstname" field.name="user[firstname]" attributes.class="form-control" attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.firstname')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.firstname.required')} />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3" id="registration__form_lastname">
+                        <label for="lastname" class="form-label">{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.lastname')}</label>
+                        <Neos.Fusion.Form:Input attributes.id="lastname" field.name="user[lastname]" attributes.class="form-control" attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.lastname')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.lastname.required')} />
+                    </div>
+                </div>
+            </div>
+
+            <div @if.render={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.address')} class="mb-3" id="registration__form_address">
+                <label for="address" class="form-label">{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.address')}</label>
+                <Neos.Fusion.Form:Input attributes.id="address" field.name="user[address]" attributes.class="form-control" attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.address')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.address.required')} />
+            </div>
+
+            <div @if.render={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.zipcity')} class="row">
+                <div class="col-md-2">
+                    <div class="mb-3" id="registration__form_zip">
+                        <label for="zip" class="form-label">{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.zip')}</label>
+                        <Neos.Fusion.Form:Input attributes.id="zip" field.name="user[zip]" attributes.class="form-control" attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.zip')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.zip.required')} />
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="mb-3" id="registration__form_city">
+                        <label for="city" class="form-label">{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.city')}</label>
+                        <Neos.Fusion.Form:Input attributes.id="city" field.name="user[city]" attributes.class="form-control" attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.city')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.city.required')} />
+                    </div>
+                </div>
+            </div>
+
+            <div @if.render={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.country')} class="mb-3" id="registration__form_country">
+                <label for="country" class="form-label">{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.country')}</label>
+                <Neos.Fusion.Form:Select attributes.id="country" field.name="user[country]" attributes.class="form-select" attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.country.required')} >
+                    <NeosRulez.FrontendLogin:Component.Countries />
+                </Neos.Fusion.Form:Select>
+            </div>
+
+            <div @if.render={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.phone') && Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.email')} class="row">
+                <div class="col-md-6">
+                    <div class="mb-3" id="registration__form_phone">
+                        <label for="phone" class="form-label">{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.phone')}</label>
+                        <Neos.Fusion.Form:Input attributes.id="phone" field.name="user[phone]" attributes.class="form-control" attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.phone')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.phone.required')} />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3" id="registration__form_email">
+                        <label for="email" class="form-label">{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.email')}</label>
+                        <Neos.Fusion.Form:Input attributes.id="email" field.name="user[email]" attributes.class="form-control" attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.email')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.email.required')} />
+                    </div>
+                </div>
+            </div>
+
+            <div @if.render={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.phone') && !Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.email')} class="mb-3" id="registration__form_phone">
+                <label for="phone" class="form-label">{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.phone')}</label>
+                <Neos.Fusion.Form:Input attributes.id="phone" field.name="user[phone]" attributes.class="form-control" attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.phone')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.phone.required')} />
+            </div>
+
+            <div @if.render={!Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.phone') && Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.email')} class="mb-3" id="registration__form_email">
+                <label for="email" class="form-label">{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.email')}</label>
+                <Neos.Fusion.Form:Input attributes.id="email" field.name="user[email]" attributes.class="form-control" attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.email')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.email.required')} />
+            </div>
+
+            <div @if.render={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.privacy') && !edit} class="mb-3" id="registration__form_privacy">
+                <div class="form-check">
+                    <Neos.Fusion.Form:Checkbox attributes.id="privacy" field.name="args[privacy]" attributes.class="form-check-input" field.value="1" attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.privacy.required')} />
+                    <label class="form-check-label" for="privacy">
+                        {I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Content.Registration:content.privacy')}
+                    </label>
+                </div>
+            </div>
+
+            <Neos.Fusion.Form:Button attributes.class="btn btn-primary" >
+                {edit ? I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Content.Registration:content.update') : I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Content.Registration:content.create')}
+            </Neos.Fusion.Form:Button>
+
+        </Neos.Fusion.Form:Form>
+
+        <NeosRulez.FrontendLogin:Component.PasswordForm @if.render={edit} />
+    `
+}
+
+prototype(NeosRulez.FrontendLogin:Component.Countries) < prototype(Neos.Fusion:Component) {
+    countries = NeosRulez.CountryDataSource:Class.Countries
+
+    renderer = afx`
+        <Neos.Fusion.Form:Select.Option option.value={false} attributes.selected={true} attributes.disabled={true} >{I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Content.Registration:content.pleaseSelect')}</Neos.Fusion.Form:Select.Option>
+        <Neos.Fusion:Loop items={props.countries} itemName="country">
+            <Neos.Fusion.Form:Select.Option option.value={country.cca2} >{country.name.common}</Neos.Fusion.Form:Select.Option>
+        </Neos.Fusion:Loop>
+    `
+}
+
+prototype(NeosRulez.FrontendLogin:Component.Salutation) < prototype(Neos.Fusion:Component) {
+
+    renderer = afx`
+        <Neos.Fusion.Form:Select.Option option.value="1" >{I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Content.Registration:content.male')}</Neos.Fusion.Form:Select.Option>
+        <Neos.Fusion.Form:Select.Option option.value="2" >{I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Content.Registration:content.female')}</Neos.Fusion.Form:Select.Option>
+        <Neos.Fusion.Form:Select.Option option.value="3" >{I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Content.Registration:content.divers')}</Neos.Fusion.Form:Select.Option>
+    `
+}

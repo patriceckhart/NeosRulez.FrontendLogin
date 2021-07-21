@@ -1,0 +1,8 @@
+prototype(NeosRulez.FrontendLogin:Content.Reset) < prototype(Neos.Neos:ContentComponent) {
+
+    renderer = afx`
+        <NeosRulez.FrontendLogin:Component.AbstractContent>
+            <NeosRulez.FrontendLogin:Component.ResetForm />
+        </NeosRulez.FrontendLogin:Component.AbstractContent>
+    `
+}

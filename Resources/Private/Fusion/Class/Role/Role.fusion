@@ -1,0 +1,4 @@
+prototype(NeosRulez.FrontendLogin:Class.Role) {
+    @class = 'NeosRulez\\FrontendLogin\\Fusion\\RoleFusion'
+    roles = false
+}

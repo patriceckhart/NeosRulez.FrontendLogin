@@ -1,0 +1,22 @@
+prototype(Neos.Neos:Page) {
+    if = Neos.Fusion:Case {
+        if {
+            nodeRoles = ${q(node).property('roles')}
+            role = NeosRulez.FrontendLogin:Class.Role {
+                roles = ${q(node).property('roles')}
+            }
+            condition = ${this.nodeRoles ? site.context.inBackend || this.role ? false : true : false}
+            renderer = NeosRulez.FrontendLogin:Class.Forbidden
+        }
+        elseif {
+            nodeUserGroups = ${q(node).property('userGroups')}
+            userGroups = NeosRulez.FrontendLogin:Class.UserGroup {
+                userGroups = ${q(node).property('userGroups')}
+            }
+            condition = ${this.nodeUserGroups ? site.context.inBackend || this.userGroups ? false : true : false}
+            renderer = NeosRulez.FrontendLogin:Class.Forbidden
+        }
+    }
+}
+
+

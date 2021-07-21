@@ -14,11 +14,4 @@ use Neos\Flow\Persistence\Repository;
 class UserRepository extends Repository
 {
 
-    public function findByUsername($username) {
-        $class = '\NeosRulez\FrontendLogin\Domain\Model\User';
-        $query = $this->persistenceManager->createQueryForType($class);
-        $result = $query->matching($query->equals('username', $username))->execute()->getFirst();
-        return $result;
-    }
-
 }

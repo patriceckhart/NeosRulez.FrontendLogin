@@ -1,0 +1,29 @@
+NeosRulez.FrontendLogin.Backend.UserGroupController.new = NeosRulez.FrontendLogin:Backend.Integration.UserGroupController.New
+
+prototype(NeosRulez.FrontendLogin:Backend.Integration.UserGroupController.New) < prototype(Neos.Fusion:Component) {
+
+    renderer = afx`
+        <NeosRulez.FrontendLogin:Backend.Presentation.Component.DefaultLayout>
+            <Neos.Fusion.Form:Form form.target.action={edit ? 'update' : 'create'} form.data.userGroup={userGroup} >
+
+                <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="userGroup[name]" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.UserGroup.Index:row.name')}>
+                    <Neos.Fusion.Form:Input attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.UserGroup.Index:row.name')} attributes.required={true} />
+                </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+
+                <div class="neos-footer">
+
+                    <Neos.Fusion.Form:Button attributes.class="neos-button neos-button-primary">
+                        {edit ? I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.update') : I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.UserGroup.New:content.create')}
+                    </Neos.Fusion.Form:Button>
+
+                    <Neos.Fusion:Link.Action class="neos-button neos-button-default" href.action="index" >
+                        {I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.index')}
+                    </Neos.Fusion:Link.Action>
+
+                </div>
+
+            </Neos.Fusion.Form:Form>
+
+        </NeosRulez.FrontendLogin:Backend.Presentation.Component.DefaultLayout>
+    `
+}

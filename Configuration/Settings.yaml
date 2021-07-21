@@ -1,12 +1,11 @@
 Neos:
   Flow:
+    mvc:
+      routes:
+        'NeosRulez.FrontendLogin': true
     security:
       authentication:
         providers:
-          'Neos.Neos:Backend':
-            requestPatterns:
-              'Neos.Neos.FrontendLogin:NeosBackend':
-                pattern: NeosRulez\FrontendLogin\Security\NeosRequestPattern
           'NeosRulez.FrontendLogin:NeosFrontend':
             provider: PersistedUsernamePasswordProvider
             requestPatterns:
@@ -14,9 +13,6 @@ Neos:
                 pattern: NeosRulez\FrontendLogin\Security\NeosRequestPattern
                 patternOptions:
                   matchFrontend: true
-    mvc:
-      routes:
-        'NeosRulez.FrontendLogin': true
   Neos:
     eventLog:
       enabled: true
@@ -30,26 +26,66 @@ Neos:
       defaultLanguage: 'de'
     nodeTypes:
       groups:
-        neosrulez_frontendlogin:
+        neosrulezFrontendlogin:
           position: 'end'
-          label: NeosRulez.FrontendLogin:Main:felogin
+          label: NeosRulez.FrontendLogin:Main:inspector.group.label
     fusion:
       autoInclude:
         NeosRulez.FrontendLogin: true
     modules:
       frontendlogin:
-        label: NeosRulez.FrontendLogin:Modules:module_frontendlogin_label
+        label: NeosRulez.FrontendLogin:Modules:moduleFrontendlogin.label
         controller: '\Neos\Neos\Controller\Module\ManagementController'
-        description: NeosRulez.FrontendLogin:Modules:module_frontendlogin_description
+        description: NeosRulez.FrontendLogin:Modules:moduleFrontendlogin.description
         icon: 'fas fa-unlock'
         resource: 'Neos_Neos_Backend_Module_Management'
         submodules:
           user:
-            label: NeosRulez.FrontendLogin:Modules:submodule_user_label
-            controller: '\NeosRulez\FrontendLogin\Controller\UserController'
-            description: NeosRulez.FrontendLogin:Modules:submodule_user_description
+            label: NeosRulez.FrontendLogin:Modules:subModuleFrontendlogin.user.label
+            controller: '\NeosRulez\FrontendLogin\Controller\Backend\UserController'
+            description: NeosRulez.FrontendLogin:Modules:subModuleFrontendlogin.user.description
             icon: 'fas fa-user'
             actions:
               index:
-                label: NeosRulez.FrontendLogin:Modules:submodule_user_action_label
-                title: NeosRulez.FrontendLogin:Modules:submodule_user_action_title
+                label: NeosRulez.FrontendLogin:Modules:subModuleFrontendlogin.user.label
+                title: NeosRulez.FrontendLogin:Modules:subModuleFrontendlogin.user.title
+          usergroup:
+            label: NeosRulez.FrontendLogin:Modules:subModuleFrontendlogin.usergroup.label
+            controller: '\NeosRulez\FrontendLogin\Controller\Backend\UserGroupController'
+            description: NeosRulez.FrontendLogin:Modules:subModuleFrontendlogin.usergroup.description
+            icon: 'fas fa-users'
+            actions:
+              index:
+                label: NeosRulez.FrontendLogin:Modules:subModuleFrontendlogin.usergroup.label
+                title: NeosRulez.FrontendLogin:Modules:subModuleFrontendlogin.usergroup.title
+NeosRulez:
+  FrontendLogin:
+    passwordReset: true
+    adminMail: 'foo@bar.com'
+    mail:
+      templates:
+        registration: 'resource://NeosRulez.FrontendLogin/Private/Templates/Mail/Registration.html'
+        resetPassword: 'resource://NeosRulez.FrontendLogin/Private/Templates/Mail/ResetPassword.html'
+    registration:
+      autoActive: true
+      defaultRole: 'NeosRulez.FrontendLogin:FrontendUser'
+      formfields:
+        salutation:
+          required: true
+        company:
+          required: false
+        name:
+          required: true
+        address:
+          required: true
+        zipcity:
+          required: true
+        country:
+          required: true
+          default: 'AT'
+        phone:
+          required: false
+        email:
+          required: true
+        privacy:
+          required: true

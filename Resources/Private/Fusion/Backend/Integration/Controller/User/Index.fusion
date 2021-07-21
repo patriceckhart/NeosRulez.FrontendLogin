@@ -1,0 +1,93 @@
+NeosRulez.FrontendLogin.Backend.UserController.index = NeosRulez.FrontendLogin:Backend.Integration.UserController.Index
+
+prototype(NeosRulez.FrontendLogin:Backend.Integration.UserController.Index) < prototype(Neos.Fusion:Component) {
+
+    renderer = afx`
+        <NeosRulez.FrontendLogin:Backend.Presentation.Component.DefaultLayout>
+            <style>{"
+                .neos-button .fa-toggle-off { opacity:0.2; }
+                .neos-button:hover .fa-toggle-off { opacity:1 !important; }
+            "}</style>
+            <p @if.render={!users} >
+                {I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:content.nousers')}
+            </p>
+            <div @if.render={users} class="neos-table-wrapper">
+                <table class="neos-table">
+                    <thead>
+                    <tr>
+                        <td>{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:row.username')}</td>
+                        <td>{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:row.roles')}</td>
+                        <td>{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:row.usergroups')}</td>
+                        <td>{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:row.name')}</td>
+                        <td>{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:row.created')}</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <Neos.Fusion:Loop items={users} itemName="user">
+                            <tr>
+                                <td>
+                                    {user.username}
+                                </td>
+                                <td>
+                                    <span @if.render={!user.roles} class="neos-badge" style="background:#ff460d">
+                                        {I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:content.noroles')}
+                                    </span>
+                                    <Neos.Fusion:Loop @if.render={user.roles} items={user.roles} itemName="role">
+                                        <span class="neos-badge" style="display:block;margin-top:5px;margin-bottom:5px">{role}</span>
+                                    </Neos.Fusion:Loop>
+
+                                </td>
+                                <td>
+                                    <span @if.render={!user.usergroups} class="neos-badge" style="background:#ff460d">
+                                        {I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:content.noroles')}
+                                    </span>
+                                    <Neos.Fusion:Loop @if.render={user.usergroups} items={user.usergroups} itemName="usergroup">
+                                        <span class="neos-badge" style="display:block;margin-top:5px;margin-bottom:5px">{usergroup.name}</span>
+                                    </Neos.Fusion:Loop>
+                                </td>
+                                <td>
+                                    {user.firstname} {user.lastname}
+                                </td>
+                                <td>
+                                    {Date.format(user.created, 'Y-m-d, H:i')}
+                                </td>
+                                <td>
+                                    <span class={'neos-badge ' + (user.active ? ' neos-badge-success' : ' neos-badge-warning')} >
+                                        {user.active ? I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:content.active') : I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:content.inactive')}
+                                    </span>
+                                </td>
+                                <td class="neos-action">
+                                    <div class="neos-pull-right" >
+
+                                        <Neos.Fusion:Link.Action class="neos-button neos-button-default" href.action="edit" href.arguments={{user: user}} >
+                                            <i class="fas fa-pen"></i>
+                                        </Neos.Fusion:Link.Action>
+
+                                        <Neos.Fusion:Link.Action class={'neos-button' + (user.active ? ' neos-button-warning' : ' neos-button-success')} href.action="change" href.arguments={{user: user}} >
+                                            <i @if.render={user.active} class="fas fa-toggle-on"></i>
+                                            <i @if.render={!user.active} class="fas fa-toggle-off"></i>
+                                        </Neos.Fusion:Link.Action>
+
+                                        <Neos.Fusion:Link.Action class="neos-button neos-button-danger" href.action="delete" href.arguments={{user: user}} onclick={'return confirm("' + I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:content.confirm') + '")'} >
+                                            <i class="fas fa-trash"></i>
+                                        </Neos.Fusion:Link.Action>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </Neos.Fusion:Loop>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="neos-footer">
+                <Neos.Fusion:Link.Action class="neos-button neos-button-primary" href.action="new" >
+                    {I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:content.new')}
+                </Neos.Fusion:Link.Action>
+            </div>
+
+        </NeosRulez.FrontendLogin:Backend.Presentation.Component.DefaultLayout>
+    `
+}

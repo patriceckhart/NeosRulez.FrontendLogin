@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="NeosRulez.FrontendLogin" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="ui.label" xml:space="preserve">
+				<source>User registration</source>
+			</trans-unit>
+            <trans-unit id="properties.redirectSuccess" xml:space="preserve">
+				<source>Landing page after successful registration</source>
+			</trans-unit>
+            <trans-unit id="content.privacy" xml:space="preserve">
+				<source>I accept the processing and storage of the data provided in accordance with the data protection guidelines.</source>
+			</trans-unit>
+            <trans-unit id="content.pleaseSelect" xml:space="preserve">
+				<source>Please select</source>
+			</trans-unit>
+            <trans-unit id="content.male" xml:space="preserve">
+				<source>Mr</source>
+			</trans-unit>
+            <trans-unit id="content.female" xml:space="preserve">
+				<source>Mrs</source>
+			</trans-unit>
+            <trans-unit id="content.divers" xml:space="preserve">
+				<source>Diverse</source>
+			</trans-unit>
+            <trans-unit id="content.create" xml:space="preserve">
+				<source>Registration</source>
+			</trans-unit>
+            <trans-unit id="content.update" xml:space="preserve">
+				<source>Save changes</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

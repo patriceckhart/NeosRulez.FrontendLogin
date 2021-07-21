@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="NeosRulez.FrontendLogin" source-language="de" datatype="plaintext">
+        <body>
+            <trans-unit id="content.logindata" xml:space="preserve">
+				<source>Login Daten</source>
+			</trans-unit>
+            <trans-unit id="content.username" xml:space="preserve">
+				<source>Benutzername</source>
+			</trans-unit>
+            <trans-unit id="content.password1" xml:space="preserve">
+				<source>Passwort</source>
+			</trans-unit>
+            <trans-unit id="content.password2" xml:space="preserve">
+				<source>Passwort wiederholen</source>
+			</trans-unit>
+            <trans-unit id="content.permissions" xml:space="preserve">
+				<source>Berechtigungen</source>
+			</trans-unit>
+            <trans-unit id="content.roles" xml:space="preserve">
+				<source>Benutzer Rollen</source>
+			</trans-unit>
+            <trans-unit id="content.personaldata" xml:space="preserve">
+				<source>Persönliche Daten</source>
+			</trans-unit>
+            <trans-unit id="content.salutation" xml:space="preserve">
+				<source>Anrede</source>
+			</trans-unit>
+            <trans-unit id="content.company" xml:space="preserve">
+				<source>Firma</source>
+			</trans-unit>
+            <trans-unit id="content.firstname" xml:space="preserve">
+				<source>Vorname</source>
+			</trans-unit>
+            <trans-unit id="content.lastname" xml:space="preserve">
+				<source>Nachname</source>
+			</trans-unit>
+            <trans-unit id="content.address" xml:space="preserve">
+				<source>Adresse</source>
+			</trans-unit>
+            <trans-unit id="content.zip" xml:space="preserve">
+				<source>Postleitzahl</source>
+			</trans-unit>
+            <trans-unit id="content.city" xml:space="preserve">
+				<source>Ort</source>
+			</trans-unit>
+            <trans-unit id="content.country" xml:space="preserve">
+				<source>Land</source>
+			</trans-unit>
+            <trans-unit id="content.phone" xml:space="preserve">
+				<source>Telefonnummer</source>
+			</trans-unit>
+            <trans-unit id="content.email" xml:space="preserve">
+				<source>E-Mail Adresse</source>
+			</trans-unit>
+            <trans-unit id="content.create" xml:space="preserve">
+				<source>Benutzer erstellen</source>
+			</trans-unit>
+            <trans-unit id="content.update" xml:space="preserve">
+				<source>Änderungen speichern</source>
+			</trans-unit>
+            <trans-unit id="content.index" xml:space="preserve">
+				<source>Zurück zur Übersicht</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

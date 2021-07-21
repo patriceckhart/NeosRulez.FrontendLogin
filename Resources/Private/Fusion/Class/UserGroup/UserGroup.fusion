@@ -1,0 +1,4 @@
+prototype(NeosRulez.FrontendLogin:Class.UserGroup) {
+    @class = 'NeosRulez\\FrontendLogin\\Fusion\\UserGroupFusion'
+    userGroups = false
+}

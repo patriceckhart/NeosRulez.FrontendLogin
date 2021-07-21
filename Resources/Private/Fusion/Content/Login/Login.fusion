@@ -1,0 +1,8 @@
+prototype(NeosRulez.FrontendLogin:Content.Login) < prototype(Neos.Neos:ContentComponent) {
+
+    renderer = afx`
+        <NeosRulez.FrontendLogin:Component.AbstractContent>
+            <NeosRulez.FrontendLogin:Component.LoginForm />
+        </NeosRulez.FrontendLogin:Component.AbstractContent>
+    `
+}

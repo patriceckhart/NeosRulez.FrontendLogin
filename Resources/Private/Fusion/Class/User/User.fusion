@@ -1,0 +1,3 @@
+prototype(NeosRulez.FrontendLogin:Class.User) {
+    @class = 'NeosRulez\\FrontendLogin\\Fusion\\UserFusion'
+}

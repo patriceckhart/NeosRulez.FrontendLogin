@@ -1,0 +1,8 @@
+prototype(NeosRulez.FrontendLogin:Component.BackendMessage) < prototype(Neos.Fusion:Component) {
+    inBackend = ${site.context.inBackend}
+    renderer = afx`
+        <code @if.render={props.inBackend}>
+            {I18n.translate('NeosRulez.FrontendLogin:Main:content.inBackend')}
+        </code>
+    `
+}

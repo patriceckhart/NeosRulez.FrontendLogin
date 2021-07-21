@@ -1,0 +1,9 @@
+prototype(NeosRulez.FrontendLogin:Content.Edit) < prototype(Neos.Neos:ContentComponent) {
+
+    renderer = afx`
+        <NeosRulez.FrontendLogin:Component.AbstractContent>
+            <NeosRulez.FrontendLogin:Component.BackendMessage />
+            <NeosRulez.FrontendLogin:Component.EditForm />
+        </NeosRulez.FrontendLogin:Component.AbstractContent>
+    `
+}

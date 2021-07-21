@@ -1,0 +1,14 @@
+prototype(NeosRulez.FrontendLogin:Component.LogoutButton) < prototype(Neos.Fusion:Component) {
+    nodeTypeClassName = ${String.replace(String.replace(String.toLowerCase(node.nodetype), '.', '-'), ':', '-')}
+    user = NeosRulez.FrontendLogin:Class.User
+    inBackend = ${site.context.inBackend}
+
+    renderer = afx`
+        <div @if.render={props.user && !props.inBackend} class={props.nodeTypeClassName}>
+            <p>{I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Content.Logout:content.youAreLoggedInAs')}: <strong>{props.user.username}</strong></p>
+            <Neos.Fusion:Link.Action class="btn btn-primary" href.action="logout" href.controller="Login" href.package="NeosRulez.FrontendLogin" >
+                {I18n.translate('NeosRulez.FrontendLogin:NodeTypes.Content.Logout:content.logout')}
+            </Neos.Fusion:Link.Action>
+        </div>
+    `
+}

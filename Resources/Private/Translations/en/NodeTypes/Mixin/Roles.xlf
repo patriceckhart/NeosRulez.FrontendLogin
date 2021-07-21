@@ -2,14 +2,8 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file original="" product-name="NeosRulez.FrontendLogin" source-language="de" datatype="plaintext">
         <body>
-            <trans-unit id="tabs.neosrulez_frontendlogin_tab" xml:space="preserve">
-				<source>Frontend Login</source>
-			</trans-unit>
-            <trans-unit id="groups.neosrulez_frontendlogin_group" xml:space="preserve">
-				<source>Frontend Login</source>
-			</trans-unit>
             <trans-unit id="properties.roles" xml:space="preserve">
-				<source>Usergroups</source>
+				<source>Benutzer Rollen</source>
 			</trans-unit>
         </body>
     </file>

@@ -1,0 +1,3 @@
+prototype(NeosRulez.FrontendLogin:Class.Forbidden) {
+    @class = 'NeosRulez\\FrontendLogin\\Fusion\\ForbiddenFusion'
+}

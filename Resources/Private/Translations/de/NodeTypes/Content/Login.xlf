@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="NeosRulez.FrontendLogin" source-language="de" datatype="plaintext">
+        <body>
+            <trans-unit id="ui.label" xml:space="preserve">
+				<source>Login Formular</source>
+			</trans-unit>
+            <trans-unit id="properties.redirectSuccess" xml:space="preserve">
+				<source>Zielseite nach erfolgreichem Login</source>
+			</trans-unit>
+            <trans-unit id="content.username" xml:space="preserve">
+				<source>Benutzername</source>
+			</trans-unit>
+            <trans-unit id="content.password" xml:space="preserve">
+				<source>Passwort</source>
+			</trans-unit>
+            <trans-unit id="content.login" xml:space="preserve">
+				<source>Anmelden</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

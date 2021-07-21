@@ -3,15 +3,15 @@
   ui:
     inspector:
       tabs:
-        neosrulez_frontendlogin_tab:
-          label: i18n
-          icon: 'far fa-user'
-          position: 9998
+        neosrulezFrontendlogin:
+          label: NeosRulez.FrontendLogin:Main:inspector.group.label
+          icon: far fa-user
+          position: end
       groups:
-        neosrulez_frontendlogin_group:
-          tab: 'neosrulez_frontendlogin_tab'
-          label: i18n
-          icon: 'far fa-user'
+        neosrulezFrontendlogin:
+          tab: neosrulezFrontendlogin
+          label: NeosRulez.FrontendLogin:Main:inspector.group.label
+          icon: far fa-user
   properties:
     roles:
       defaultValue: ''
@@ -19,9 +19,25 @@
       ui:
         label:  i18n
         reloadIfChanged: true
-        showInCreationDialog: true
         inspector:
-          group: 'neosrulez_frontendlogin_group'
+          hidden: 'ClientEval:node.properties.showAtAnyLogin || node.properties.hideAtAnyLogin ? true : false'
+          group: neosrulezFrontendlogin
           editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             dataSourceIdentifier: neosrulez-frontendlogin-roles
+#    showAtAnyLogin:
+#      type: boolean
+#      defaultValue: false
+#      ui:
+#        label: i18n
+#        reloadIfChanged: true
+#        inspector:
+#          group: neosrulezFrontendlogin
+#    hideAtAnyLogin:
+#      type: boolean
+#      defaultValue: false
+#      ui:
+#        label: i18n
+#        reloadIfChanged: true
+#        inspector:
+#          group: neosrulezFrontendlogin

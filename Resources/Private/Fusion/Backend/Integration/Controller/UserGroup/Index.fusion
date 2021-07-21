@@ -1,0 +1,67 @@
+NeosRulez.FrontendLogin.Backend.UserGroupController.index = NeosRulez.FrontendLogin:Backend.Integration.UserGroupController.Index
+
+prototype(NeosRulez.FrontendLogin:Backend.Integration.UserGroupController.Index) < prototype(Neos.Fusion:Component) {
+
+    renderer = afx`
+        <NeosRulez.FrontendLogin:Backend.Presentation.Component.DefaultLayout>
+
+            <p @if.render={!userGroups} >
+                {I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.UserGroup.Index:content.nousergroups')}
+            </p>
+            <div @if.render={userGroups} class="neos-table-wrapper">
+                <table class="neos-table">
+                    <thead>
+                    <tr>
+                        <td>{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.UserGroup.Index:row.name')}</td>
+                        <td>&nbsp;</td>
+                        <td>{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.UserGroup.Index:row.created')}</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <Neos.Fusion:Loop items={userGroups} itemName="userGroup">
+                        <tr>
+                            <td>
+                                {userGroup.name}
+                            </td>
+                            <td>
+                                <span class={'neos-badge ' + (userGroup.active ? ' neos-badge-success' : ' neos-badge-warning')} >
+                                    {userGroup.active ? I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:content.active') : I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.Index:content.inactive')}
+                                </span>
+                            </td>
+                            <td>
+                                {Date.format(userGroup.created, 'Y-m-d, H:i')}
+                            </td>
+                            <td class="neos-action">
+                                <div class="neos-pull-right" >
+
+                                    <Neos.Fusion:Link.Action class="neos-button neos-button-default" href.action="edit" href.arguments={{userGroup: userGroup}} >
+                                        <i class="fas fa-pen"></i>
+                                    </Neos.Fusion:Link.Action>
+
+                                    <Neos.Fusion:Link.Action class={'neos-button' + (userGroup.active ? ' neos-button-warning' : ' neos-button-success')} href.action="change" href.arguments={{userGroup: userGroup}} >
+                                        <i @if.render={userGroup.active} class="fas fa-toggle-on"></i>
+                                        <i @if.render={!userGroup.active} class="fas fa-toggle-off"></i>
+                                    </Neos.Fusion:Link.Action>
+
+                                    <Neos.Fusion:Link.Action class="neos-button neos-button-danger" href.action="delete" href.arguments={{userGroup: userGroup}} onclick={'return confirm("' + I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.UserGroup.Index:content.confirm') + '")'} >
+                                        <i class="fas fa-trash"></i>
+                                    </Neos.Fusion:Link.Action>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </Neos.Fusion:Loop>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="neos-footer">
+                <Neos.Fusion:Link.Action class="neos-button neos-button-primary" href.action="new" >
+                    {I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.UserGroup.Index:content.new')}
+                </Neos.Fusion:Link.Action>
+            </div>
+
+        </NeosRulez.FrontendLogin:Backend.Presentation.Component.DefaultLayout>
+    `
+}

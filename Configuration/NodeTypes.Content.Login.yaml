@@ -1,0 +1,27 @@
+'NeosRulez.FrontendLogin:Content.Login':
+  superTypes:
+    'NeosRulez.FrontendLogin:Component.AbstractContent': true
+  ui:
+    label: i18n
+    group: neosrulezFrontendlogin
+    icon: fas fa-user-lock
+    position: 1
+    inspector:
+      tabs:
+        neosrulezFrontendlogin:
+          label: NeosRulez.FrontendLogin:Main:inspector.group.label
+          icon: fas fa-user-lock
+          position: end
+      groups:
+        neosrulezFrontendlogin:
+          tab: neosrulezFrontendlogin
+          label: NeosRulez.FrontendLogin:Main:inspector.group.label
+          icon: fas fa-user-lock
+  properties:
+    redirectSuccess:
+      type: reference
+      ui:
+        reloadIfChanged: true
+        label: i18n
+        inspector:
+          group: neosrulezFrontendlogin

@@ -2,23 +2,29 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file original="" product-name="NeosRulez.FrontendLogin" source-language="de" datatype="plaintext">
         <body>
-            <trans-unit id="module_frontendlogin_label" xml:space="preserve">
+            <trans-unit id="moduleFrontendlogin.label" xml:space="preserve">
 				<source>Frontend Login</source>
 			</trans-unit>
-            <trans-unit id="module_frontendlogin_description" xml:space="preserve">
+            <trans-unit id="moduleFrontendlogin.description" xml:space="preserve">
 				<source>Benutzer und Gruppen für geschützten Bereich verwalten</source>
 			</trans-unit>
-            <trans-unit id="submodule_user_label" xml:space="preserve">
+            <trans-unit id="subModuleFrontendlogin.user.label" xml:space="preserve">
 				<source>Benutzer</source>
 			</trans-unit>
-            <trans-unit id="submodule_user_description" xml:space="preserve">
-				<source>Benutzer für geschützten Bereich verwalten</source>
+            <trans-unit id="subModuleFrontendlogin.user.description" xml:space="preserve">
+				<source>Frontend Login Benutzerverwaltung</source>
 			</trans-unit>
-            <trans-unit id="submodule_user_action_label" xml:space="preserve">
+            <trans-unit id="subModuleFrontendlogin.user.title" xml:space="preserve">
 				<source>Benutzer verwalten</source>
 			</trans-unit>
-            <trans-unit id="submodule_user_action_title" xml:space="preserve">
-				<source>Benutzer verwalten</source>
+            <trans-unit id="subModuleFrontendlogin.usergroup.label" xml:space="preserve">
+				<source>Benutzergruppen</source>
+			</trans-unit>
+            <trans-unit id="subModuleFrontendlogin.usergroup.description" xml:space="preserve">
+				<source>Frontend Login Benutzergruppen Verwaltung</source>
+			</trans-unit>
+            <trans-unit id="subModuleFrontendlogin.usergroup.title" xml:space="preserve">
+				<source>Benutzergruppen verwalten</source>
 			</trans-unit>
         </body>
     </file>

@@ -1,18 +1,40 @@
 -
-  name: 'Frontend Login Form'
-  uriPattern: 'felogin(/{@action}).{@format}'
-  defaults:
-    '@package': 'NeosRulez.FrontendLogin'
-    '@controller': 'Authentication'
-    '@format': 'html'
-    '@action': 'authenticate'
-  appendExceedingArguments: true
--
   name: 'logout'
-  uriPattern: 'logout'
+  uriPattern: 'felogin/logout'
   defaults:
     '@package': 'NeosRulez.FrontendLogin'
     '@controller': 'Login'
-    '@format': 'html'
     '@action': 'logout'
+  appendExceedingArguments: true
+-
+  name: 'create user'
+  uriPattern: 'felogin/create'
+  defaults:
+    '@package': 'NeosRulez.FrontendLogin'
+    '@controller': 'User'
+    '@action': 'create'
+  appendExceedingArguments: true
+-
+  name: 'update user'
+  uriPattern: 'felogin/update'
+  defaults:
+    '@package': 'NeosRulez.FrontendLogin'
+    '@controller': 'User'
+    '@action': 'update'
+  appendExceedingArguments: true
+-
+  name: 'reset users password'
+  uriPattern: 'felogin/reset'
+  defaults:
+    '@package': 'NeosRulez.FrontendLogin'
+    '@controller': 'User'
+    '@action': 'reset'
+  appendExceedingArguments: true
+-
+  name: 'reset users password'
+  uriPattern: 'felogin/updatepassword'
+  defaults:
+    '@package': 'NeosRulez.FrontendLogin'
+    '@controller': 'User'
+    '@action': 'updatePassword'
   appendExceedingArguments: true

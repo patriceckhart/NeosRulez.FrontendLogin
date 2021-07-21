@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="NeosRulez.FrontendLogin" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="row.name" xml:space="preserve">
+				<source>Name</source>
+			</trans-unit>
+            <trans-unit id="row.created" xml:space="preserve">
+				<source>Created</source>
+			</trans-unit>
+            <trans-unit id="content.confirm" xml:space="preserve">
+				<source>Do you really want to delete this user group?</source>
+			</trans-unit>
+            <trans-unit id="content.new" xml:space="preserve">
+				<source>Create a new user group</source>
+			</trans-unit>
+            <trans-unit id="content.nousergroups" xml:space="preserve">
+				<source>No user groups available</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -2,22 +2,22 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file original="" product-name="NeosRulez.FrontendLogin" source-language="en" datatype="plaintext">
         <body>
-            <trans-unit id="module_frontendlogin_label" xml:space="preserve">
+            <trans-unit id="moduleFrontendlogin.label" xml:space="preserve">
 				<source>Frontend Login</source>
 			</trans-unit>
-            <trans-unit id="module_frontendlogin_description" xml:space="preserve">
+            <trans-unit id="moduleFrontendlogin.description" xml:space="preserve">
 				<source>Manage users and groups for the protected area</source>
 			</trans-unit>
-            <trans-unit id="submodule_user_label" xml:space="preserve">
+            <trans-unit id="subModuleFrontendlogin.user.label" xml:space="preserve">
 				<source>Users</source>
 			</trans-unit>
-            <trans-unit id="submodule_user_description" xml:space="preserve">
-				<source>Manage users for the protected area</source>
+            <trans-unit id="subModuleFrontendlogin.user.description" xml:space="preserve">
+				<source>Frontend login user administration</source>
 			</trans-unit>
-            <trans-unit id="submodule_user_action_label" xml:space="preserve">
+            <trans-unit id="subModuleFrontendlogin.user.label" xml:space="preserve">
 				<source>Manage users</source>
 			</trans-unit>
-            <trans-unit id="submodule_user_action_title" xml:space="preserve">
+            <trans-unit id="subModuleFrontendlogin.user.label" xml:space="preserve">
 				<source>Manage users</source>
 			</trans-unit>
         </body>

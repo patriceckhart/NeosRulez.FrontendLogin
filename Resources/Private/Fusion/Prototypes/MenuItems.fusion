@@ -1,0 +1,3 @@
+prototype(Neos.Neos:MenuItems) {
+    @class = 'NeosRulez\\FrontendLogin\\Fusion\\MenuItemsImplementation'
+}

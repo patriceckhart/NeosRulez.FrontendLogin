@@ -1,22 +1,22 @@
 # Frontend login and user management for Neos CMS.
 
-A Neos CMS package that handles frontend login and user management.
+A Neos CMS frontend login and user management package with a powerful and "Neos policy independent" permission management.
 
 ## Installation
 
 The NeosRulez.FrontendLogin package is listed on packagist (https://packagist.org/packages/neosrulez/frontendlogin) - therefore you don't have to include the package in your "repositories" entry any more.
 
-Just add the following line to your require section:
+Just run:
 
 ```
-"neosrulez/frontendlogin": "*"
+composer require neosrulez/bootstrap
 ```
 
 ## Settings.yaml
 
 You can configure everything in Settings.yaml:
 
-```
+```yaml
 NeosRulez:
   FrontendLogin:
     passwordReset: true
@@ -24,7 +24,7 @@ NeosRulez:
     mail:
       templates:
         registration: 'resource://NeosRulez.FrontendLogin/Private/Templates/Mail/Registration.html'
-        newpassword: 'resource://NeosRulez.FrontendLogin/Private/Templates/Mail/Password.html'
+        resetPassword: 'resource://NeosRulez.FrontendLogin/Private/Templates/Mail/ResetPassword.html'
     registration:
       autoActive: true
       defaultRole: 'NeosRulez.FrontendLogin:FrontendUser'
@@ -48,11 +48,6 @@ NeosRulez:
           required: true
         privacy:
           required: true
-      countries:
-        values:
-          'AT':
-            label: 'Österreich'
-      ...
 ```
 
 ## Author

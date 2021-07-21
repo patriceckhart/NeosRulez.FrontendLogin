@@ -1,0 +1,33 @@
+prototype(NeosRulez.FrontendLogin:Component.ResetForm) < prototype(Neos.Fusion:Component) {
+
+    redirect = ${node.properties.redirect}
+    redirect.@process.convertUris = Neos.Neos:ConvertUris {
+        forceConversion = true
+    }
+    user = NeosRulez.FrontendLogin:Class.User
+    inBackend = ${site.context.inBackend}
+
+    renderer = afx`
+        <NeosRulez.FrontendLogin:Component.BackendMessage />
+        <Neos.Fusion.Form:Form @if.render={!props.user && !props.inBackend} attributes.id="reset__form" form.target.action="reset" form.target.controller="User" form.target.package="NeosRulez.FrontendLogin" attributes.name="reset" form.data.user={user} >
+
+            <Neos.Fusion.Form:Hidden field.name="args[target]" attributes.value={props.redirect} />
+
+            <div class="mb-3" id="username_username__input">
+                <Neos.Fusion.Form:Input
+                    field.name="user[username]"
+                    attributes.required="required"
+                    attributes.id="username_username"
+                    attributes.placeholder="Benutzername"
+                    attributes.class="form-control"
+                    attributes.autofocus="autofocus"
+                />
+            </div>
+
+            <Neos.Fusion.Form:Button attributes.class="btn btn-primary" >
+                Passwort zurücksetzen
+            </Neos.Fusion.Form:Button>
+
+        </Neos.Fusion.Form:Form>
+    `
+}

@@ -1,0 +1,6 @@
+NeosRulez.FrontendLogin.Backend.UserGroupController.edit = NeosRulez.FrontendLogin:Backend.Integration.UserGroupController.Edit
+
+prototype(NeosRulez.FrontendLogin:Backend.Integration.UserGroupController.Edit) < prototype(NeosRulez.FrontendLogin:Backend.Integration.UserGroupController.New) {
+
+    @context.edit = true
+}

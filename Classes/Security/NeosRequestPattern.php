@@ -11,6 +11,19 @@ class NeosRequestPattern implements RequestPatternInterface
     /**
      * @var array
      */
+    protected $settings;
+
+    /**
+     * @param array $settings
+     * @return void
+     */
+    public function injectSettings(array $settings) {
+        $this->settings = $settings;
+    }
+
+    /**
+     * @var array
+     */
     protected $options;
 
     /**
@@ -36,7 +49,7 @@ class NeosRequestPattern implements RequestPatternInterface
         }
         $shouldMatchFrontend = isset($this->options['matchFrontend']) && $this->options['matchFrontend'] === true;
         $requestPath = $request->getHttpRequest()->getUri()->getPath();
-        $requestPathMatchesBackend = substr($requestPath, 0, 5) === '/neos' || strpos($requestPath, '@') !== false || substr($requestPath, 0, 8) === '/inoovum';
+        $requestPathMatchesBackend = substr($requestPath, 0, 5) === '/neos' || strpos($requestPath, '@') !== false;
         return $shouldMatchFrontend !== $requestPathMatchesBackend;
     }
 

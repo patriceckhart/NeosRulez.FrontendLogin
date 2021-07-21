@@ -1,0 +1,8 @@
+'NeosRulez.FrontendLogin:Content.Edit':
+  superTypes:
+    'NeosRulez.FrontendLogin:Component.AbstractContent': true
+  ui:
+    label: i18n
+    group: neosrulezFrontendlogin
+    icon: fas fa-user-edit
+    position: 4

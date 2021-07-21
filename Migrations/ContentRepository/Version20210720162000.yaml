@@ -1,0 +1,18 @@
+up:
+  comments: 'Migrate NeosRulez.FrontendLogin:Plugin.Registration to NeosRulez.FrontendLogin:Content.Registration'
+  warnings: 'There is no way of reverting this migration since the nodes will be deleted in the database.'
+  migration:
+    -
+      filters:
+        -
+          type: 'NodeType'
+          settings:
+            nodeType: 'NeosRulez.FrontendLogin:Plugin.Registration'
+      transformations:
+        -
+          type: 'ChangeNodeType'
+          settings:
+            newType: 'NeosRulez.FrontendLogin:Content.Registration'
+
+down:
+  comments: 'No down migration available'

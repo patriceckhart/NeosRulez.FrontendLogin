@@ -1,0 +1,16 @@
+# Protected content depending on the user role (definied in inspector)
+'Neos.Neos:Content':
+  superTypes:
+    'NeosRulez.FrontendLogin:Mixin.Roles': true
+
+# Protected pages depending on the user role (definied in inspector)
+'Neos.Neos:Page':
+  superTypes:
+    'NeosRulez.FrontendLogin:Mixin.Roles': true
+
+# Protected page depending on the user role (definied in Policy.yaml)
+'Acme.Site:Document.ProtectedPage':
+  superTypes:
+    'Acme.Site:Document.Page': true
+    'NeosRulez.FrontendLogin:Document.ProtectedPage': true
+

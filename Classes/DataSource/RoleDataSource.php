@@ -16,12 +16,6 @@ class RoleDataSource extends AbstractDataSource {
     protected $policyService;
 
     /**
-     * @Flow\Inject
-     * @var PersistenceManagerInterface
-     */
-    protected $persistenceManager;
-
-    /**
      * @var string
      */
     protected static $identifier = 'neosrulez-frontendlogin-roles';

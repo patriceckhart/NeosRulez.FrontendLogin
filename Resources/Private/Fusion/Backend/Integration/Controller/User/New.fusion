@@ -1,0 +1,148 @@
+NeosRulez.FrontendLogin.Backend.UserController.new = NeosRulez.FrontendLogin:Backend.Integration.UserController.New
+
+prototype(NeosRulez.FrontendLogin:Backend.Integration.UserController.New) < prototype(Neos.Fusion:Component) {
+
+    renderer = afx`
+        <NeosRulez.FrontendLogin:Backend.Presentation.Component.DefaultLayout>
+            <style>{"
+                .neos-controls input, .neos-controls select { width:100%; }
+                .neos-span6, .neos-span5, .neos-span7 { margin-bottom:0 !important; }
+                .neos-checkbox { display:block; width:100%; margin-top:5px !important; margin-bottom:5px !important; }
+            "}</style>
+            <Neos.Fusion.Form:Form form.target.action={edit ? 'update' : 'create'} form.data.user={user} >
+
+                <div class="neos-row-fluid neos-module-container">
+
+                    <fieldset class="neos-span5">
+
+                        <legend>{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.logindata')}</legend>
+
+                        <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name={edit ? 'newusername' : 'username'} label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.username')}>
+                            <Neos.Fusion.Form:Input attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.username')} attributes.required={true} attributes.value={edit ? username : false} />
+                        </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+
+                        <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="password1" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.password1')}>
+                            <Neos.Fusion.Form:Input attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.password1')} attributes.type="password" attributes.required={true} attributes.value={fakepassword} />
+                        </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+
+                        <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="password2" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.password2')}>
+                            <Neos.Fusion.Form:Input attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.password2')} attributes.type="password" attributes.required={true} attributes.value={fakepassword} />
+                        </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+
+
+                        <legend>{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.permissions')}</legend>
+
+                        <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="roles" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.roles')} field.multiple>
+                            <Neos.Fusion:Loop @if.render={!edit} items={roles} itemName="role">
+                                <Neos.Fusion.Form:Checkbox field.value={role} />
+                            </Neos.Fusion:Loop>
+                            <Neos.Fusion:Loop @if.render={edit} items={roles} itemName="role">
+                                <Neos.Fusion.Form:Checkbox field.value={role.name} attributes.checked={role.checked} />
+                            </Neos.Fusion:Loop>
+                        </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+
+                        <Neos.Fusion.Form:Neos.BackendModule.FieldContainer @if.render={userGroups} field.name="user[usergroups]" label={I18n.translate('NeosRulez.FrontendLogin:Modules:subModuleFrontendlogin.usergroup.label')} field.multiple>
+                            <Neos.Fusion:Loop @if.render={!edit} items={userGroups} itemName="userGroup">
+                                <Neos.Fusion.Form:Checkbox field.value={userGroup}>{userGroup.name}</Neos.Fusion.Form:Checkbox>
+                            </Neos.Fusion:Loop>
+                            <Neos.Fusion:Loop @if.render={edit} items={userGroups} itemName="userGroup">
+                                <Neos.Fusion.Form:Checkbox field.value={userGroup.identifier} attributes.checked={userGroup.checked} >{userGroup.name}</Neos.Fusion.Form:Checkbox>
+                            </Neos.Fusion:Loop>
+                        </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+
+                    </fieldset>
+
+
+                    <fieldset class="neos-span5 neos-offset1" >
+
+                        <legend>{I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.personaldata')}</legend>
+
+                        <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="user[salutation]" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.salutation')} >
+                            <Neos.Fusion.Form:Select>
+                                <NeosRulez.FrontendLogin:Component.Salutation />
+                            </Neos.Fusion.Form:Select>
+                        </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+
+                        <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="user[company]" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.company')}>
+                            <Neos.Fusion.Form:Input attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.company')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.company.required')} />
+                        </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+
+                        <div class="row">
+
+                            <div class="neos-control-group neos-span6">
+                                <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="user[firstname]" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.firstname')}>
+                                    <Neos.Fusion.Form:Input attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.firstname')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.firstname.required')} />
+                                </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+                            </div>
+
+                            <div class="neos-control-group neos-span6">
+                                <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="user[lastname]" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.lastname')}>
+                                    <Neos.Fusion.Form:Input attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.lastname')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.lastname.required')} />
+                                </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+                            </div>
+
+                        </div>
+
+                        <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="user[address]" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.address')}>
+                            <Neos.Fusion.Form:Input attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.address')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.address.required')} />
+                        </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+
+                        <div class="row">
+
+                            <div class="neos-control-group neos-span5">
+                                <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="user[zip]" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.zip')}>
+                                    <Neos.Fusion.Form:Input attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.zip')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.zip.required')} />
+                                </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+                            </div>
+
+                            <div class="neos-control-group neos-span7">
+                                <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="user[city]" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.city')}>
+                                    <Neos.Fusion.Form:Input attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.city')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.city.required')} />
+                                </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+                            </div>
+
+                        </div>
+
+                        <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="user[country]" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.country')} >
+                            <Neos.Fusion.Form:Select attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.country.required')} >
+                                <NeosRulez.FrontendLogin:Component.Countries />
+                            </Neos.Fusion.Form:Select>
+                        </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+
+                        <div class="row">
+
+                            <div class="neos-control-group neos-span6">
+                                <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="user[phone]" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.phone')}>
+                                    <Neos.Fusion.Form:Input attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.phone')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.phone.required')} />
+                                </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+                            </div>
+
+                            <div class="neos-control-group neos-span6">
+                                <Neos.Fusion.Form:Neos.BackendModule.FieldContainer field.name="user[email]" label={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.email')}>
+                                    <Neos.Fusion.Form:Input attributes.placeholder={I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.email')} attributes.required={Configuration.setting('NeosRulez.FrontendLogin.registration.formfields.email.required')} />
+                                </Neos.Fusion.Form:Neos.BackendModule.FieldContainer>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+                </div>
+
+                <div class="neos-footer">
+
+                    <Neos.Fusion.Form:Button attributes.class="neos-button neos-button-primary">
+                        {edit ? I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.update') : I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.create')}
+                    </Neos.Fusion.Form:Button>
+
+                    <Neos.Fusion:Link.Action class="neos-button neos-button-default" href.action="index" >
+                        {I18n.translate('NeosRulez.FrontendLogin:Backend.Integration.Controller.User.New:content.index')}
+                    </Neos.Fusion:Link.Action>
+
+                </div>
+
+            </Neos.Fusion.Form:Form>
+
+        </NeosRulez.FrontendLogin:Backend.Presentation.Component.DefaultLayout>
+    `
+}

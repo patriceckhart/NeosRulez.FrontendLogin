@@ -3,7 +3,8 @@
     "type": "neos-package",
     "name": "neosrulez/frontendlogin",
     "require": {
-        "neos/neos": "*"
+        "neos/neos": "*",
+        "neosrulez/countrydatasource": "^1.0"
     },
     "autoload": {
         "psr-4": {

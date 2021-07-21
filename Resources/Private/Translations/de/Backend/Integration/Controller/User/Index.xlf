@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="NeosRulez.FrontendLogin" source-language="de" datatype="plaintext">
+        <body>
+            <trans-unit id="row.username" xml:space="preserve">
+				<source>Benutzername</source>
+			</trans-unit>
+            <trans-unit id="row.roles" xml:space="preserve">
+				<source>Benutzerrollen</source>
+			</trans-unit>
+            <trans-unit id="row.usergroups" xml:space="preserve">
+				<source>Benutzergruppen</source>
+			</trans-unit>
+            <trans-unit id="content.noroles" xml:space="preserve">
+				<source>Keine Benutzer Rollen zugewiesen</source>
+			</trans-unit>
+            <trans-unit id="row.name" xml:space="preserve">
+				<source>Name</source>
+			</trans-unit>
+            <trans-unit id="row.created" xml:space="preserve">
+				<source>Erstellt</source>
+			</trans-unit>
+            <trans-unit id="content.active" xml:space="preserve">
+				<source>Aktiv</source>
+			</trans-unit>
+            <trans-unit id="content.inactive" xml:space="preserve">
+				<source>Inaktiv</source>
+			</trans-unit>
+            <trans-unit id="content.confirm" xml:space="preserve">
+				<source>Wollen Sie den Benutzer wirklich löschen?</source>
+			</trans-unit>
+            <trans-unit id="content.new" xml:space="preserve">
+				<source>Neuen Benutzer erstellen</source>
+			</trans-unit>
+            <trans-unit id="content.nousers" xml:space="preserve">
+				<source>Keine Benutzer verfügbar</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

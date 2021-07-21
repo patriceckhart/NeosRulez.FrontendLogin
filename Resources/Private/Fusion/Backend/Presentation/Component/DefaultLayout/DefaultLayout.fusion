@@ -1,0 +1,11 @@
+include: resource://Neos.Fusion/Private/Fusion/Root.fusion
+include: resource://Neos.Fusion.Form/Private/Fusion/Root.fusion
+include: resource://NeosRulez.CountryDataSource/Private/Fusion/Class/Countries.fusion
+
+prototype(NeosRulez.FrontendLogin:Backend.Presentation.Component.DefaultLayout) < prototype(Neos.Fusion:Component) {
+
+    renderer = afx`
+        {props.content}
+    `
+    @process.debugDump = Neos.Fusion:DebugDump
+}

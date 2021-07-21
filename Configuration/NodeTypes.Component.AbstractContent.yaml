@@ -1,0 +1,4 @@
+'NeosRulez.FrontendLogin:Component.AbstractContent':
+  abstract: true
+  superTypes:
+    'Neos.Neos:Content': true

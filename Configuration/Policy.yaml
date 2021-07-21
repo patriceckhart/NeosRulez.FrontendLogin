@@ -4,7 +4,13 @@ privilegeTargets:
       matcher: 'method(Neos\Flow\Security\Authentication\Controller\AbstractAuthenticationController->.*Action()) || method(NeosRulez\FrontendLogin\Controller\LoginController->.*Action())'
     'NeosRulez.FrontendLogin:UserControllerActions':
       matcher: 'method(NeosRulez\FrontendLogin\Controller\UserController->.*Action())'
-
+    'NeosRulez.FrontendLogin:BackendUserControllerActions':
+      matcher: 'method(NeosRulez\FrontendLogin\Controller\Backend\UserController->.*Action())'
+    'NeosRulez.FrontendLogin:BackendUserGroupControllerActions':
+      matcher: 'method(NeosRulez\FrontendLogin\Controller\Backend\UserGroupController->.*Action())'
+  Neos\ContentRepository\Security\Authorization\Privilege\Node\ReadNodePrivilege:
+    'NeosRulez.FrontendLogin:ProtectedNode':
+      matcher: 'nodeIsOfType("NeosRulez.FrontendLogin:Document.ProtectedPage")'
 roles:
   'Neos.Flow:Everybody':
     privileges:
@@ -14,5 +20,19 @@ roles:
       -
         privilegeTarget: 'NeosRulez.FrontendLogin:UserControllerActions'
         permission: GRANT
+  'Neos.Neos:AbstractEditor':
+    parentRoles: ['NeosRulez.FrontendLogin:FrontendUser']
+    privileges:
+      -
+        privilegeTarget: 'NeosRulez.FrontendLogin:BackendUserControllerActions'
+        permission: GRANT
+      -
+        privilegeTarget: 'NeosRulez.FrontendLogin:BackendUserGroupControllerActions'
+        permission: GRANT
   'NeosRulez.FrontendLogin:FrontendUser':
-    privileges: [ ]
+    privileges:
+      -
+        privilegeTarget: 'NeosRulez.FrontendLogin:ProtectedNode'
+        permission: GRANT
+  'NeosRulez.FrontendLogin:FrontendUser2':
+    parentRoles: [ 'NeosRulez.FrontendLogin:FrontendUser' ]

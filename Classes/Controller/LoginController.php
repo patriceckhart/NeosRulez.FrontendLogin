@@ -19,21 +19,9 @@ class LoginController extends AbstractAuthenticationController
 
     /**
      * @Flow\Inject
-     * @var \NeosRulez\FrontendLogin\Domain\Repository\LoginRepository
+     * @var \NeosRulez\FrontendLogin\Domain\Repository\UserRepository
      */
-    protected $loginRepository;
-
-    /**
-     * @Flow\Inject
-     * @var \Neos\Neos\Service\LinkingService
-     */
-    protected $linkingService;
-
-    /**
-     * @Flow\Inject
-     * @var \Neos\Flow\I18n\Service
-     */
-    protected $i18nService;
+    protected $userRepository;
 
     /**
      * @Flow\Inject
@@ -41,18 +29,6 @@ class LoginController extends AbstractAuthenticationController
      */
     protected $translator;
 
-    /**
-     * @var array
-     */
-    protected $settings;
-
-    /**
-     * @param array $settings
-     * @return void
-     */
-    public function injectSettings(array $settings) {
-        $this->settings = $settings;
-    }
 
     /**
      * @param ActionRequest $originalRequest The request that was intercepted by the security framework, NULL if there was none
@@ -60,37 +36,15 @@ class LoginController extends AbstractAuthenticationController
      */
     protected function onAuthenticationSuccess(ActionRequest $originalRequest = null)
     {
-        $username = $this->loginRepository->getUsername();
-        $user = $this->loginRepository->checkIfUserExist($username);
+        $user = $this->userRepository->findByUsername($this->userService->username());
         $active = $user->getActive();
 
         if($active) {
-//            $redirectSuccessNode = $this->request->getArgument('redirectSuccess');
-//            $redirectSuccess = $this->getNodeUri($redirectSuccessNode);
             $redirectSuccess = $this->request->getArgument('redirectSuccess');
             $this->redirectToUri($redirectSuccess);
         } else {
             $this->redirect('logout');
         }
-
-    }
-
-    /**
-     * @return string
-     */
-    public function getNodeUri($node) {
-        $url = $this->linkingService->createNodeUri(
-            $this->getControllerContext(),
-            $node,
-            null,
-            'html',
-            'false',
-            [],
-            '',
-            false,
-            []
-        );
-        return $url;
     }
 
     /**
@@ -121,8 +75,8 @@ class LoginController extends AbstractAuthenticationController
      */
     protected function getErrorFlashMessage()
     {
-        $title = $this->translator->translateById('failureTitle', [], null, null, $sourceName = 'Main', $packageKey = 'NeosRulez.FrontendLogin');
-        $message = $this->translator->translateById('failureMessage', [], null, null, $sourceName = 'Main', $packageKey = 'NeosRulez.FrontendLogin');
+        $title = $this->translator->translateById('failure.title', [], null, null, $sourceName = 'Main', $packageKey = 'NeosRulez.FrontendLogin');
+        $message = $this->translator->translateById('failure.message', [], null, null, $sourceName = 'Main', $packageKey = 'NeosRulez.FrontendLogin');
         return new \Neos\Error\Messages\Error($message, null, [], $title);
     }
 
@@ -132,7 +86,7 @@ class LoginController extends AbstractAuthenticationController
     public function logoutAction()
     {
         parent::logoutAction();
-        $this->redirect('login', 'user');
+        $this->redirectToUri('/');
     }
 
 }
